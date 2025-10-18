@@ -1,0 +1,271 @@
+<!-- الرابط الثابت المخصص (Slug) -->
+[هنا-يتم-وضع-الرابط-المخصص]
+
+<!-- بيانات الميتا للمقال العشبي -->
+<meta content="[عنوان المقال العشبي مع الكلمات المفتاحية]" name="headline">
+<meta content="[عنوان المقال لـ OG]" property="og:title">
+<meta content="[كلمات مفتاحية عشبية, طب بديل, علاج طبيعي]" name="keywords">
+<meta content="[وصف المقال العشبي]" name="description">
+
+<!-- العنوان الرئيسي -->
+<h3><span style="font-size: large;">[عنوان المقال العشبي]</span></h3>
+
+<!-- التحذير الطبي للأعشاب -->
+<div style="background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; margin: 15px 0; border-radius: 5px; text-align: right;">
+<strong>⚠️ تحذير مهم:</strong> الأعشاب الطبية قد تتفاعل مع الأدوية أو تسبب حساسية. استشر طبيبك قبل استخدام أي عشبة طبية خاصة إذا كنت تتناول أدوية أخرى أو تعاني من حالات صحية.
+</div>
+
+<!-- المقدمة -->
+<div style="text-align: right;">
+[مقدمة تعليمية حول النبتة أو العلاج العشبي مع التأكيد على الاستشارة الطبية]
+<a href="#ref1" id="cite1" style="color:#2196f3; font-weight:bold; text-decoration:none;">[1]</a>
+</div>
+
+<!-- الصورة العشبية -->
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="[رابط-صورة-العشبة.webp]" style="margin-left: auto; margin-right: auto; text-decoration:none;">
+<img alt="[وصف العشبة أو النبتة]" border="0" data-original-height="853" data-original-width="1280" height="426" src="[رابط-صورة-مصغرة.webp]" title="[اسم العشبة]" width="640" />
+</a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">[تعليق حول العشبة]</td>
+</tr>
+</tbody>
+</table>
+
+<!-- نبذة عن العشبة -->
+<div style="text-align: right;">
+[معلومات عامة عن العشبة ومكوناتها الفعالة]
+<a href="#ref2" id="cite2" style="color:#2196f3; font-weight:bold; text-decoration:none;">[2]</a>
+<span><!--more--></span>
+</div>
+
+<!-- الفوائد الطبية -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">الفوائد الطبية المحتملة</span>
+</h3>
+<div style="text-align: right;">
+[الفوائد الطبية المدعومة بالأدلة العلمية]
+<a href="#ref3" id="cite3" style="color:#2196f3; font-weight:bold; text-decoration:none;">[3]</a>
+</div>
+
+<!-- طرق الاستخدام -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">طرق الاستخدام التقليدية</span>
+</h3>
+<div style="text-align: right;">
+[طرق الاستخدام مع الجرعات المقترحة والتحذيرات]
+<a href="#ref4" id="cite4" style="color:#2196f3; font-weight:bold; text-decoration:none;">[4]</a>
+</div>
+
+<!-- التحذيرات والتفاعلات -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">التحذيرات والتفاعلات الدوائية</span>
+</h3>
+<div style="text-align: right;">
+[التحذيرات الطبية والتفاعلات مع الأدوية]
+<a href="#ref5" id="cite5" style="color:#2196f3; font-weight:bold; text-decoration:none;">[5]</a>
+</div>
+
+<!-- الخاتمة العشبية -->
+<div style="text-align: right;">
+[خاتمة تؤكد على أهمية الاستشارة الطبية وعدم الاعتماد على الأعشاب كبديل كامل للعلاج الطبي]
+</div>
+
+<!-- قسم المصادر العشبية -->
+<h3 style="text-align: right;"><span style="font-size: large;">المصادر العلمية</span></h3>
+<div style="text-align: right;">
+<ul style="list-style: none; padding: 0px;">
+  <li id="ref1" style="margin-bottom: 8px;">
+    <a href="#cite1" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[1]</a>
+    - <a href="[رابط_المصدر_العشبي_الأول]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر العشبي الأول]">[عنوان المصدر العشبي الأول]</a>
+  </li>
+  <li id="ref2" style="margin-bottom: 8px;">
+    <a href="#cite2" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[2]</a>
+    - <a href="[رابط_المصدر_العشبي_الثاني]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر العشبي الثاني]">[عنوان المصدر العشبي الثاني]</a>
+  </li>
+  <li id="ref3" style="margin-bottom: 8px;">
+    <a href="#cite3" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[3]</a>
+    - <a href="[رابط_المصدر_العشبي_الثالث]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر العشبي الثالث]">[عنوان المصدر العشبي الثالث]</a>
+  </li>
+  <li id="ref4" style="margin-bottom: 8px;">
+    <a href="#cite4" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[4]</a>
+    - <a href="[رابط_المصدر_العشبي_الرابع]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر العشبي الرابع]">[عنوان المصدر العشبي الرابع]</a>
+  </li>
+  <li id="ref5" style="margin-bottom: 8px;">
+    <a href="#cite5" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[5]</a>
+    - <a href="[رابط_المصدر_العشبي_الخامس]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر العشبي الخامس]">[عنوان المصدر العشبي الخامس]</a>
+  </li>
+</ul>
+</div>
+
+<!-- سكيما الطب البديل -->
+<script id="herbalSchema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "[عنوان المقال العشبي]",
+  "description": "[وصف المقال العشبي]",
+  "datePublished": "__POST_DATE__",
+  "dateModified": "__POST_MODIFIED_DATE__",
+  "author": {
+    "@type": "Organization",
+    "name": "__AUTHOR_NAME__",
+    "url": "__AUTHOR_URL__"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "__SITE_NAME__",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "__SITE_LOGO__"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "__POST_URL__"
+  },
+  "about": {
+    "@type": "Drug",
+    "name": "[اسم العشبة]",
+    "activeIngredient": "[المكونات الفعالة]",
+    "description": "[وصف العشبة وفوائدها]",
+    "drugClass": "Herbal Medicine"
+  },
+  "audience": {
+    "@type": "MedicalAudience",
+    "audienceType": "Patient"
+  }
+}
+</script>
+<!-- سكيما الأسئلة والأجوبة-->
+
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>

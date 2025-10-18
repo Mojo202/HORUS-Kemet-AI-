@@ -1,0 +1,285 @@
+<!-- الرابط الثابت المخصص (Slug) -->
+[هنا-يتم-وضع-الرابط-المخصص]
+
+<!-- بيانات الميتا للمقال الطبي -->
+<meta content="[عنوان المقال الطبي مع الكلمات المفتاحية]" name="headline">
+<meta content="[عنوان المقال لـ OG]" property="og:title">
+<meta content="[كلمات مفتاحية طبية, علاج رياضي, إصابات]" name="keywords">
+<meta content="[وصف المقال الطبي]" name="description">
+
+<!-- العنوان الرئيسي -->
+<h3><span style="font-size: large;">[عنوان المقال الطبي الرياضي]</span></h3>
+
+<!-- الفقرة التحذيرية الطبية -->
+<div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin: 15px 0; border-radius: 5px; text-align: right;">
+<strong>⚠️ تنبيه طبي مهم:</strong> هذا المقال للأغراض التعليمية فقط ولا يغني عن استشارة الطبيب المختص. يجب مراجعة أخصائي الطب الرياضي قبل تطبيق أي علاج أو تمرين.
+</div>
+
+<!-- المقدمة -->
+<div style="text-align: right;">
+[المقدمة التعليمية حول الموضوع الطبي الرياضي مع التأكيد على أهمية الاستشارة الطبية]
+<a href="#ref1" id="cite1" style="color:#2196f3; font-weight:bold; text-decoration:none;">[1]</a>
+</div>
+
+<!-- الصورة الطبية -->
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="[رابط-الصورة-الطبية.webp]" style="margin-left: auto; margin-right: auto; text-decoration:none;">
+<img alt="[وصف الصورة الطبية]" border="0" data-original-height="853" data-original-width="1280" height="426" src="[رابط-الصورة-مصغرة.webp]" title="[عنوان الصورة الطبية]" width="640" />
+</a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">[تعليق الصورة الطبية]</td>
+</tr>
+</tbody>
+</table>
+
+<!-- المحتوى الطبي -->
+<div style="text-align: right;">
+[محتوى تعليمي طبي متخصص مع المراجع العلمية]
+<a href="#ref2" id="cite2" style="color:#2196f3; font-weight:bold; text-decoration:none;">[2]</a>
+<span><!--more--></span>
+</div>
+
+<!-- الأعراض والتشخيص -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">الأعراض والتشخيص</span>
+</h3>
+<div style="text-align: right;">
+[معلومات طبية حول الأعراض والتشخيص]
+<a href="#ref3" id="cite3" style="color:#2196f3; font-weight:bold; text-decoration:none;">[3]</a>
+</div>
+
+<!-- العلاج والتأهيل -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">العلاج والتأهيل</span>
+</h3>
+<div style="text-align: right;">
+[معلومات حول العلاج والتأهيل مع التأكيد على الإشراف الطبي]
+<a href="#ref4" id="cite4" style="color:#2196f3; font-weight:bold; text-decoration:none;">[4]</a>
+</div>
+
+<!-- الوقاية -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">الوقاية</span>
+</h3>
+<div style="text-align: right;">
+[نصائح الوقاية من الإصابات الرياضية]
+<a href="#ref5" id="cite5" style="color:#2196f3; font-weight:bold; text-decoration:none;">[5]</a>
+</div>
+
+<!-- الخاتمة الطبية -->
+<div style="text-align: right;">
+[خاتمة تؤكد على أهمية المتابعة الطبية المتخصصة]
+</div>
+
+<!-- قسم المصادر الطبية -->
+<h3 style="text-align: right;"><span style="font-size: large;">المصادر الطبية</span></h3>
+<div style="text-align: right;">
+<ul style="list-style: none; padding: 0px;">
+  <li id="ref1" style="margin-bottom: 8px;">
+    <a href="#cite1" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[1]</a>
+    - <a href="[رابط_المصدر_الطبي_الأول]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الطبي الأول]">[عنوان المصدر الطبي الأول]</a>
+  </li>
+  <li id="ref2" style="margin-bottom: 8px;">
+    <a href="#cite2" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[2]</a>
+    - <a href="[رابط_المصدر_الطبي_الثاني]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الطبي الثاني]">[عنوان المصدر الطبي الثاني]</a>
+  </li>
+  <li id="ref3" style="margin-bottom: 8px;">
+    <a href="#cite3" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[3]</a>
+    - <a href="[رابط_المصدر_الطبي_الثالث]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الطبي الثالث]">[عنوان المصدر الطبي الثالث]</a>
+  </li>
+  <li id="ref4" style="margin-bottom: 8px;">
+    <a href="#cite4" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[4]</a>
+    - <a href="[رابط_المصدر_الطبي_الرابع]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الطبي الرابع]">[عنوان المصدر الطبي الرابع]</a>
+  </li>
+  <li id="ref5" style="margin-bottom: 8px;">
+    <a href="#cite5" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[5]</a>
+    - <a href="[رابط_المصدر_الطبي_الخامس]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الطبي الخامس]">[عنوان المصدر الطبي الخامس]</a>
+  </li>
+</ul>
+</div>
+
+<!-- سكيما المقال الطبي -->
+<script id="medicalSchema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "[عنوان المقال الطبي]",
+  "description": "[وصف المقال الطبي]",
+  "datePublished": "__POST_DATE__",
+  "dateModified": "__POST_MODIFIED_DATE__",
+  "author": {
+    "@type": "Organization",
+    "name": "__AUTHOR_NAME__",
+    "url": "__AUTHOR_URL__"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "__SITE_NAME__",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "__SITE_LOGO__"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "__POST_URL__"
+  },
+  "about": {
+    "@type": "MedicalCondition",
+    "name": "[اسم الحالة الطبية أو الإصابة]",
+    "alternateName": "[أسماء أخرى للحالة]",
+    "description": "[وصف الحالة الطبية]",
+    "code": {
+      "@type": "MedicalCode",
+      "code": "[رمز ICD-10 إن وجد]",
+      "codingSystem": "ICD-10"
+    }
+  },
+  "audience": {
+    "@type": "MedicalAudience",
+    "audienceType": "Patient"
+  },
+  "medicalAudience": [
+    {
+      "@type": "MedicalAudience",
+      "audienceType": "Athlete"
+    },
+    {
+      "@type": "MedicalAudience", 
+      "audienceType": "Sports Medicine Practitioner"
+    }
+  ]
+}
+</script>
+<!-- سكيما الأسئلة والأجوبة-->
+
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>

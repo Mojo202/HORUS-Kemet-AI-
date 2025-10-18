@@ -1,0 +1,288 @@
+<!-- الرابط الثابت المخصص (Slug) -->
+[هنا-يتم-وضع-الرابط-المخصص]
+
+<!-- بيانات الميتا للأبراج -->
+<meta content="[عنوان مقال الأبراج مع الكلمات المفتاحية]" name="headline">
+<meta content="[عنوان المقال لـ OG]" property="og:title">
+<meta content="[كلمات مفتاحية أبراج, حظ, تنجيم, توقعات]" name="keywords">
+<meta content="[وصف مقال الأبراج]" name="description">
+
+<!-- العنوان الرئيسي -->
+<h3><span style="font-size: large;">[عنوان مقال الأبراج والحظ]</span></h3>
+
+<!-- إخلاء المسؤولية -->
+<div style="background-color: #e7f3ff; border: 1px solid #b3d9ff; padding: 15px; margin: 15px 0; border-radius: 5px; text-align: right;">
+<strong>🔮 إخلاء مسؤولية:</strong> هذا المحتوى للتسلية والثقافة العامة فقط. التنجيم وقراءة الأبراج ليست علوماً دقيقة ولا يجب الاعتماد عليها في اتخاذ القرارات المهمة في الحياة.
+</div>
+
+<!-- المقدمة -->
+<div style="text-align: right;">
+[مقدمة حول البرج أو التوقعات الفلكية]
+<a href="#ref1" id="cite1" style="color:#2196f3; font-weight:bold; text-decoration:none;">[1]</a>
+</div>
+
+<!-- الصورة الفلكية -->
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="[رابط-صورة-البرج.webp]" style="margin-left: auto; margin-right: auto; text-decoration:none;">
+<img alt="[وصف صورة البرج]" border="0" data-original-height="853" data-original-width="1280" height="426" src="[رابط-صورة-مصغرة.webp]" title="[عنوان صورة البرج]" width="640" />
+</a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">[تعليق صورة البرج]</td>
+</tr>
+</tbody>
+</table>
+
+<!-- التوقعات العامة -->
+<div style="text-align: right;">
+[التوقعات العامة للبرج أو الفترة الزمنية]
+<a href="#ref2" id="cite2" style="color:#2196f3; font-weight:bold; text-decoration:none;">[2]</a>
+<span><!--more--></span>
+</div>
+
+<!-- الحب والعلاقات -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">💕 الحب والعلاقات</span>
+</h3>
+<div style="text-align: right;">
+[توقعات الحب والعلاقات العاطفية]
+<a href="#ref3" id="cite3" style="color:#2196f3; font-weight:bold; text-decoration:none;">[3]</a>
+</div>
+
+<!-- المال والعمل -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">💰 المال والعمل</span>
+</h3>
+<div style="text-align: right;">
+[توقعات المال والمهنة والاستثمارات]
+<a href="#ref4" id="cite4" style="color:#2196f3; font-weight:bold; text-decoration:none;">[4]</a>
+</div>
+
+<!-- الصحة -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">🌿 الصحة والعافية</span>
+</h3>
+<div style="text-align: right;">
+[توقعات الصحة والطاقة الجسدية والنفسية]
+<a href="#ref5" id="cite5" style="color:#2196f3; font-weight:bold; text-decoration:none;">[5]</a>
+</div>
+
+<!-- النصائح والإرشادات -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">✨ نصائح فلكية</span>
+</h3>
+<div style="text-align: right;">
+[نصائح وإرشادات فلكية للفترة القادمة]
+</div>
+
+<!-- الأرقام المحظوظة -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">🍀 أرقامك المحظوظة</span>
+</h3>
+<div style="text-align: right;">
+الأرقام المحظوظة: [قائمة الأرقام]<br>
+الألوان المحظوظة: [قائمة الألوان]<br>
+الأيام المناسبة: [قائمة الأيام]
+</div>
+
+<!-- الخاتمة -->
+<div style="text-align: right;">
+[خاتمة تذكر بأن هذا للتسلية وأن الإنسان صانع مصيره]
+</div>
+
+<!-- قسم المصادر -->
+<h3 style="text-align: right;"><span style="font-size: large;">المصادر</span></h3>
+<div style="text-align: right;">
+<ul style="list-style: none; padding: 0px;">
+  <li id="ref1" style="margin-bottom: 8px;">
+    <a href="#cite1" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[1]</a>
+    - <a href="[رابط_مصدر_الأبراج_الأول]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الأبراج الأول]">[عنوان مصدر الأبراج الأول]</a>
+  </li>
+  <li id="ref2" style="margin-bottom: 8px;">
+    <a href="#cite2" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[2]</a>
+    - <a href="[رابط_مصدر_الأبراج_الثاني]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الأبراج الثاني]">[عنوان مصدر الأبراج الثاني]</a>
+  </li>
+  <li id="ref3" style="margin-bottom: 8px;">
+    <a href="#cite3" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[3]</a>
+    - <a href="[رابط_مصدر_الأبراج_الثالث]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الأبراج الثالث]">[عنوان مصدر الأبراج الثالث]</a>
+  </li>
+  <li id="ref4" style="margin-bottom: 8px;">
+    <a href="#cite4" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[4]</a>
+    - <a href="[رابط_مصدر_الأبراج_الرابع]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الأبراج الرابع]">[عنوان مصدر الأبراج الرابع]</a>
+  </li>
+  <li id="ref5" style="margin-bottom: 8px;">
+    <a href="#cite5" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[5]</a>
+    - <a href="[رابط_مصدر_الأبراج_الخامس]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الأبراج الخامس]">[عنوان مصدر الأبراج الخامس]</a>
+  </li>
+</ul>
+</div>
+
+<!-- سكيما مقال الأبراج -->
+<script id="horoscopeSchema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[عنوان مقال الأبراج]",
+  "description": "[وصف مقال الأبراج]",
+  "datePublished": "__POST_DATE__",
+  "dateModified": "__POST_MODIFIED_DATE__",
+  "author": {
+    "@type": "Organization",
+    "name": "__AUTHOR_NAME__",
+    "url": "__AUTHOR_URL__"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "__SITE_NAME__",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "__SITE_LOGO__"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "__POST_URL__"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "[رابط الصورة الرئيسية]",
+    "width": 1280,
+    "height": 853
+  },
+  "articleSection": "Horoscope & Astrology",
+  "keywords": "[كلمات مفتاحية الأبراج]"
+}
+</script>
+
+
+<!-- سكيما الأسئلة والأجوبة-->
+
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>

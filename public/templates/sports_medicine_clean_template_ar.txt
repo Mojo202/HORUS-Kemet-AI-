@@ -1,0 +1,218 @@
+<!--الرابط الثابت المخصص (Slug)-->
+[اكتب-هنا-الرابط-باللغة-الانجليزية]
+
+<!--القالب المرجعى للمقال-->
+<meta content="[اكتب هنا عنوان جذاب للمقال يتضمن الكلمات المفتاحية]" name="headline" />
+<meta content="[اكتب هنا عنوان المقال الرسمي لـ OG]" property="og:title" />
+<meta content="[اكتب هنا الكلمات المفتاحية مفصولة بفاصلة]" name="keywords" />
+<meta content="[اكتب هنا وصف قصير وموجز للمقال لا يتجاوز 160 حرفًا]" name="description" />
+
+<h3><span style="font-size: large;">[اكتب هنا العنوان الرئيسي للمقال]</span></h3>
+<p style="text-align: right;">
+[اكتب هنا الفقرة الافتتاحية للمقال] <a href="#ref1" id="cite1" style="color: #2196f3; font-weight: bold; text-decoration: none;">[1]</a>
+</p>
+
+<!--بداية الجملة التحذيرية 🩸-->
+<div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin: 15px 0; border-radius: 5px; text-align: right;">
+<p dir="rtl" style="text-align: right;">⚠️ <strong>إخلاء مسؤولية طبية:</strong> هذا المحتوى ذو طبيعة توعوية ولا يشكل استشارة طبية احترافية ولا يغني بأي حال من الأحوال عن الاستشارة الطبية المهنية. يشدد بشكل قاطع على ضرورة استشارة الطبيب المعتمد قبل أي إجراء علاجي، لضمان التقييم الدقيق والمناسب لحالتك الفردية وسلامتك.
+</p>
+</div>
+<!--بداية الجملة التحذيرية -->
+
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+    <tbody>
+        <tr>
+            <td style="text-align: center;"><a href="[رابط-الصورة.webp]" style="margin-left: auto; margin-right: auto;"><img alt="[وصف دقيق للصورة يتضمن الكلمات المفتاحية]" border="0" data-original-height="768" data-original-width="1408" height="350" src="[رابط-الصورة-بحجم-أصغر.webp]" title="[عنوان الصورة يوضح محتواها]" width="640" /></a></td>
+        </tr>
+        <tr>
+            <td class="tr-caption" style="text-align: center;">[تعليق توضيحي قصير أسفل الصورة]<br /></td>
+        </tr>
+    </tbody>
+</table>
+
+<p style="text-align: right;">
+[اكتب هنا فقرة تمهيدية أخرى قبل علامة "المزيد"]
+<span><!--more--></span>
+</p>
+
+<h3 style="text-align: right;">
+    <span style="font-size: large;">[اكتب هنا العنوان الفرعي الثاني]</span>
+</h3>
+<p style="text-align: right;">
+    [اكتب هنا الفقرات الخاصة بالعنوان الفرعي الثاني]
+</p>
+<ul style="padding-right: 20px; text-align: right;">
+    <li style="margin-bottom: 10px;"><b>[النقطة الأولى]:</b> [شرح النقطة الأولى]</li>
+    <li style="margin-bottom: 10px;"><b>[النقطة الثانية]:</b> [شرح النقطة الثانية] <a href="#ref2" id="cite2" style="color: #2196f3; font-weight: bold; text-decoration: none;">[2]</a></li>
+</ul>
+
+<h3 style="text-align: right;"><span style="font-size: large;">[اكتب هنا العنوان الفرعي الثالث]</span></h3>
+<p style="text-align: right;">
+[اكتب هنا الفقرات الخاصة بالعنوان الفرعي الثالث]
+</p>
+<table class="main-table" style="border-collapse: collapse; border: 2px solid var(--blogcolor); text-align: center; width: 100%;">
+    <thead style="background-color: var(--blogcolor);">
+        <tr>
+            <th style="border: 1px solid var(--blogcolor); color: white; font-weight: bold; padding: 8px;">[عنوان العمود الأول]</th>
+            <th style="border: 1px solid var(--blogcolor); color: white; font-weight: bold; padding: 8px;">[عنوان العمود الثاني]</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid var(--blogcolor); font-weight: bold; padding: 8px;">[بيانات الصف الأول]</td>
+            <td style="border: 1px solid var(--blogcolor); padding: 8px; text-align: right;">[شرح بيانات الصف الأول]</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid var(--blogcolor); font-weight: bold; padding: 8px;">[بيانات الصف الثاني]</td>
+            <td style="border: 1px solid var(--blogcolor); padding: 8px; text-align: right;">[شرح بيانات الصف الثاني] <a href="#ref3" id="cite3" style="color: #2196f3; font-weight: bold; text-decoration: none;">[3]</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 style="text-align: right;"><span style="font-size: large;">[اكتب هنا العنوان الفرعي الرابع]</span></h3>
+<p style="text-align: right;">
+[اكتب هنا الفقرات الخاصة بالعنوان الفرعي الرابع] <a href="#ref4" id="cite4" style="color: #2196f3; font-weight: bold; text-decoration: none;">[4]</a>
+</p>
+
+<p style="text-align: right;">
+[اكتب هنا الفقرة الختامية للمقال]
+</p>
+
+<h3 style="text-align: right;"><span style="font-size: large;">المصادر</span></h3>
+<ul style="list-style: none; padding: 0px; text-align: right;">
+    <li id="ref1" style="margin-bottom: 8px;">
+        <a href="#cite1" style="color: inherit; font-weight: normal; text-decoration: none;" title="اذهب لمكان الاقتباس في النص">[1]</a> - <a href="[رابط_المصدر_الأول]" rel="noopener noreferrer nofollow" style="color: #2196f3; text-decoration: underline;" target="_blank" title="[عنوان المصدر الأول]">[عنوان المصدر الأول]</a>
+    </li>
+    <li id="ref2" style="margin-bottom: 8px;">
+        <a href="#cite2" style="color: inherit; font-weight: normal; text-decoration: none;" title="اذهب لمكان الاقتباس في النص">[2]</a> - <a href="[رابط_المصدر_الثاني]" rel="noopener noreferrer nofollow" style="color: #2196f3; text-decoration: underline;" target="_blank" title="[عنوان المصدر الثاني]">[عنوان المصدر الثاني]</a>
+    </li>
+    <li id="ref3" style="margin-bottom: 8px;">
+        <a href="#cite3" style="color: inherit; font-weight: normal; text-decoration: none;" title="اذهب لمكان الاقتباس في النص">[3]</a> - <a href="[رابط_المصدر_الثالث]" rel="noopener noreferrer nofollow" style="color: #2196f3; text-decoration: underline;" target="_blank" title="[عنوان المصدر الثالث]">[عنوان المصدر الثالث]</a>
+    </li>
+    <li id="ref4" style="margin-bottom: 8px;">
+        <a href="#cite4" style="color: inherit; font-weight: normal; text-decoration: none;" title="اذهب لمكان الاقتباس في النص">[4]</a> - <a href="[رابط_المصدر_الرابع]" rel="noopener noreferrer nofollow" style="color: #2196f3; text-decoration: underline;" target="_blank" title="[عنوان المصدر الرابع]">[عنوان المصدر الرابع]</a>
+    </li>
+</ul>
+
+<!--سكيما الأسئلة والأجوبة-->
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>

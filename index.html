@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0"
+  }
+}
+</script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Creation Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="./lib/ffmpeg/ffmpeg.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      /* For rendered preview */
+      .preview-container h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .preview-container .tr_bq {
+        border-right: 4px solid #4a5568;
+        padding-right: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+        color: #a0aec0;
+      }
+      /* New Responsive Table Styles */
+      .preview-container table {
+        width: 100%;
+        max-width: 100%; /* Ensure it doesn't overflow */
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        overflow-x: auto; /* Allow horizontal scroll on small screens */
+        display: block; /* For overflow to work properly */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        border: 1px solid #4a5568; /* gray-600 */
+      }
+      .preview-container th, .preview-container td {
+          border: 1px solid #4a5568; /* gray-600 */
+          padding: 12px;
+          text-align: right;
+          border-left: none;
+          border-right: none;
+          word-break: break-word; /* Force long text to wrap */
+      }
+       .preview-container td {
+          color: #cbd5e0; /* gray-300 */
+      }
+      .preview-container th {
+          background-color: #2d3748; /* gray-800 */
+          color: #e2e8f0; /* gray-200 */
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+      }
+       .preview-container tr:nth-child(even) {
+          background-color: #2d3748; /* gray-800 */
+      }
+       .preview-container tr:hover {
+          background-color: #4a5568; /* gray-600 */
+      }
+      .preview-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 0.5rem;
+      }
+      .preview-container .tr-caption {
+        text-align: center;
+        font-size: 0.875rem;
+        color: #718096;
+        margin-top: 0.5rem;
+      }
+
+      /* New: Responsive Video Container */
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background: #000;
+        border-radius: 8px; /* Optional: adds rounded corners */
+      }
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+
+      /* New: Toggle for hidden elements */
+      .preview-container.show-hidden script,
+      .preview-container.show-hidden meta {
+        display: block;
+        white-space: pre-wrap;
+        word-break: break-all;
+        background-color: #1a202c; /* Darker background for code */
+        border: 1px dashed #4a5568;
+        padding: 12px;
+        margin: 12px 0;
+        font-family: 'Courier New', Courier, monospace;
+        color: #a0aec0;
+        border-radius: 8px;
+      }
+       .preview-container script,
+       .preview-container meta {
+          display: none;
+       }
+      
+      /* New: Star Rating Styles */
+      .star-rating button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 2px;
+        color: #4a5568; /* Default empty star color */
+        transition: color 0.2s;
+      }
+      .star-rating button.on {
+        color: #f59e0b; /* Filled star color (amber-500) */
+      }
+      .star-rating button.off {
+        color: #6b7280; /* Empty star color (gray-500) */
+      }
+      .star-rating button:hover {
+        transform: scale(1.2);
+      }
+
+      /* Responsive Preview Styles */
+      .responsive-preview-wrapper {
+        background-color: #374151; /* gray-700 */
+        padding: 2rem;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 400px;
+        transition: padding 0.5s ease;
+      }
+      .preview-frame {
+        background-color: white;
+        border: 4px solid #4b5563; /* gray-600 */
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+        resize: horizontal;
+        min-width: 320px;
+      }
+      .dark .preview-frame {
+        background-color: #1f2937; /* gray-800 */
+      }
+      .preview-frame-desktop { width: 100%; height: 600px; }
+      .preview-frame-tablet { width: 768px; height: 1024px; }
+      .preview-frame-mobile { width: 375px; height: 667px; }
+
+
+      /* New Pulsing Triangle Animation */
+      @keyframes pulse-glow-triangle {
+        0%, 100% {
+          filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.7));
+          stroke-opacity: 0.8;
+        }
+        50% {
+          filter: drop-shadow(0 0 16px rgba(34, 211, 238, 1));
+          stroke-opacity: 1;
+        }
+      }
+
+      .pulsing-triangle {
+        animation: pulse-glow-triangle 5s infinite ease-in-out;
+      }
+      
+      @keyframes eye-glow {
+          0%, 100% {
+            filter: drop-shadow(0 0 2px #22d3ee) drop-shadow(0 0 5px #22d3ee);
+            opacity: 0.8;
+          }
+          50% {
+            filter: drop-shadow(0 0 5px #22d3ee) drop-shadow(0 0 15px #22d3ee);
+            opacity: 1;
+          }
+      }
+      .eye-animation {
+        animation: eye-glow 3.5s infinite ease-in-out;
+      }
+      
+      /* Updated Main Banner Styles */
+      .main-banner {
+        background: radial-gradient(ellipse at top, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.95) 100%);
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+      }
+
+      .glowing-text {
+        color: #d1d5db; /* gray-300 */
+        text-shadow: 0 0 5px rgba(34, 211, 238, 0.5);
+        animation: pulse-text-glow 4s infinite ease-in-out;
+      }
+
+      /* New: Green glowing text for valid API keys */
+      .glowing-green-text {
+        color: #4ade80; /* green-400 */
+        text-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+      }
+
+      @keyframes pulse-text-glow {
+        0%, 100% {
+          text-shadow: 0 0 5px rgba(34, 211, 238, 0.5), 0 0 2px rgba(209, 213, 219, 0.5);
+        }
+        50% {
+          text-shadow: 0 0 10px rgba(34, 211, 238, 0.8), 0 0 4px rgba(209, 213, 219, 0.5);
+        }
+      }
+      
+       /* Nano Banana Studio Styles */
+      @keyframes banana-glow {
+        0%, 100% { text-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 8px #fde047, 0 0 12px #facc15; }
+        50% { text-shadow: 0 0 2px rgba(0,0,0,0.4), 0 0 12px #fde047, 0 0 24px #facc15; }
+      }
+      
+      /* New Electric Blue & Gold Button Theme */
+      .glassy-yellow-btn {
+        background: linear-gradient(to bottom, rgba(28, 58, 112, 0.5), rgba(15, 33, 64, 0.6)); /* Deep electric blue gradient */
+        border: 1px solid rgba(34, 211, 238, 0.4); /* Cyan border */
+        border-top-color: rgba(100, 230, 255, 0.7); /* Lighter cyan top highlight */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition: all 0.3s ease-out;
+        color: #fde047; /* Bright yellow base for icons/text */
+        text-shadow: 
+            0 0 7px #fde047, /* Moderate single glow */
+            0 0 15px rgba(250, 204, 21, 0.5); /* Softer wider glow */
+        box-shadow: 
+            0 6px 12px rgba(0, 0, 0, 0.5),
+            inset 0 1px 1px rgba(100, 230, 255, 0.4), /* Inner cyan highlight */
+            inset 0 -2px 3px rgba(5, 15, 30, 0.5); /* Inner dark blue shadow */
+        transform: translateY(0);
+        will-change: transform, box-shadow, text-shadow, background;
+      }
+      .glassy-yellow-btn:hover {
+        background: linear-gradient(to bottom, rgba(48, 78, 132, 0.6), rgba(35, 53, 84, 0.7)); /* Lighter blue hover gradient */
+        border-color: rgba(34, 211, 238, 0.8);
+        border-top-color: rgba(120, 240, 255, 1);
+        transform: translateY(-3px);
+        text-shadow: 
+            0 0 10px #fef9c3, /* Slightly brighter on hover */
+            0 0 20px rgba(253, 224, 71, 0.7); /* Wider glow on hover */
+        box-shadow: 
+            0 10px 20px rgba(0, 0, 0, 0.6),
+            inset 0 1px 2px rgba(120, 240, 255, 0.6),
+            inset 0 -2px 5px rgba(5, 15, 30, 0.6);
+      }
+      .glassy-yellow-btn:active {
+        transform: translateY(-1px);
+        transition-duration: 0.1s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 
+                    inset 0 1px 2px rgba(5, 15, 30, 0.7);
+      }
+      .glassy-yellow-btn:disabled {
+        background: rgba(18, 30, 51, 0.25); /* Darker, desaturated blue */
+        border-color: rgba(34, 211, 238, 0.2);
+        color: #a3a3a3; /* Readable neutral gray for disabled text */
+        cursor: not-allowed;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        text-shadow: none;
+        transform: translateY(0);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        opacity: 1; /* NO OPACITY CHANGE */
+      }
+      .glassy-yellow-btn i {
+        font-size: 1.25rem; /* Moderate icon size */
+        transform-origin: center center;
+        transition: all 0.3s ease-out;
+      }
+       .glassy-yellow-btn:hover i {
+          transform: scale(1.1); /* Pop more moderately */
+          filter: drop-shadow(0 0 8px #fde047);
+      }
+      
+      .nano-banner {
+        background: radial-gradient(ellipse at center, rgba(30, 20, 0, 0.8), rgba(17, 10, 0, 0.95)), url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png');
+        border-radius: 0.75rem;
+        padding: 1rem 2rem;
+        border: 1px solid rgba(250, 204, 21, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+      .nano-title {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: #fef08a;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        animation: banana-glow 4s infinite ease-in-out;
+      }
+       .nano-banana-icon-banner {
+        font-size: 50px; /* Use font-size for emojis */
+        filter: drop-shadow(0 0 12px #facc15);
+        transform: rotate(-15deg);
+        animation: banana-glow 3s infinite ease-in-out;
+      }
+
+      /* New: Glowing frame for YouTube video box */
+      .youtube-glow-frame {
+        border: 2px solid rgba(255, 70, 70, 0.6);
+        background: rgba(255, 0, 0, 0.08);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        box-shadow: 0 0 18px rgba(255, 0, 0, 0.6), inset 0 0 12px rgba(255, 50, 50, 0.4);
+        transition: box-shadow 0.4s ease-in-out, border-color 0.4s ease-in-out;
+      }
+
+      /* New: Glowing frame for Medical article output */
+      .medical-glow-frame {
+          border-width: 2px; /* Make border slightly thicker to hold the glow */
+          border-color: rgba(34, 211, 238, 0.3); /* Base cyan border */
+          box-shadow: 0 0 25px rgba(34, 211, 238, 0.35), inset 0 0 10px rgba(34, 211, 238, 0.15);
+          transition: box-shadow 0.4s ease-in-out, border-color 0.4s ease-in-out;
+      }
+      .medical-glow-frame:hover {
+          border-color: rgba(34, 211, 238, 0.6);
+          box-shadow: 0 0 35px rgba(34, 211, 238, 0.5), inset 0 0 15px rgba(34, 211, 238, 0.25);
+      }
+
+      /* New/Updated: Horoscope Studio Styles */
+      .horoscope-banner {
+          background: radial-gradient(ellipse at top, rgba(126, 34, 206, 0.8) 0%, rgba(59, 10, 108, 0.95) 100%);
+          padding: 1.5rem; 
+          text-align: center; 
+          border-radius: 1rem;
+          border: 1px solid rgba(192, 132, 252, 0.4);
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(126, 34, 206, 0.6);
+          position: relative; 
+          overflow: hidden;
+      }
+      .horoscope-banner::before {
+          content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+          background-image: radial-gradient(1px 1px at 20% 20%, #fff, transparent), radial-gradient(1px 1px at 80% 30%, #fff, transparent), radial-gradient(2px 2px at 50% 60%, #fff, transparent), radial-gradient(1px 1px at 30% 80%, #fff, transparent), radial-gradient(1px 1px at 90% 70%, #fff, transparent), radial-gradient(2px 2px at 10% 50%, #fff, transparent);
+          animation: twinkle 10s infinite linear;
+          opacity: 0.5;
+      }
+      @keyframes twinkle { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      .horoscope-title {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        color: #fef08a; /* yellow-200 */
+        text-shadow: 0 0 8px #facc15, 0 0 15px #a855f7;
+        animation: banana-glow 4s infinite ease-in-out;
+      }
+      
+      .glassy-purple-btn {
+          background: linear-gradient(to bottom, rgba(109, 40, 217, 0.5), rgba(76, 29, 149, 0.6));
+          border: 1px solid rgba(192, 132, 252, 0.4); border-top-color: rgba(216, 180, 254, 0.7);
+          backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+          transition: all 0.3s ease-out; color: #fde047; text-shadow: 0 0 7px #fde047;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(216, 180, 254, 0.4), inset 0 -2px 3px rgba(46, 16, 101, 0.5);
+      }
+      .glassy-purple-btn:hover {
+          background: linear-gradient(to bottom, rgba(126, 34, 206, 0.6), rgba(91, 33, 182, 0.7));
+          border-color: rgba(192, 132, 252, 0.8); transform: translateY(-2px);
+          text-shadow: 0 0 10px #fef9c3, 0 0 20px rgba(253, 224, 71, 0.7);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(216, 180, 254, 0.6), inset 0 -2px 5px rgba(46, 16, 101, 0.6);
+      }
+      .glassy-purple-btn:disabled {
+          background: rgba(76, 29, 149, 0.25); border-color: rgba(168, 85, 247, 0.2);
+          color: #a3a3a3; cursor: not-allowed; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+          text-shadow: none; transform: translateY(0);
+      }
+      .purple-select {
+          appearance: none; background-color: rgba(31, 21, 57, 0.7); border: 1px solid #7c3aed;
+          padding: 0.75rem; border-radius: 0.375rem; color: #fde047;
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23fde047' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+          background-position: left 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;
+          padding-left: 2.5rem; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+          transition: all 0.3s ease;
+      }
+      .purple-select:focus {
+          outline: none; border-color: #fde047; box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.3);
+      }
+      .horoscope-drop-zone {
+        border: 2px dashed #a855f7; background: rgba(168, 85, 247, 0.1);
+        border-radius: 0.5rem; padding: 1rem; text-align: center;
+        transition: all 0.3s ease; cursor: pointer;
+      }
+      .horoscope-drop-zone.dragging, .horoscope-drop-zone:hover {
+        background: rgba(168, 85, 247, 0.2); border-color: #c084fc;
+        box-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
+      }
+      .voice-test-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 0.375rem;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      /* New: Glowing Key Icon for API Manager */
+      @keyframes pulse-key-glow {
+        0%, 100% { filter: drop-shadow(0 0 5px var(--glow-color-soft)) drop-shadow(0 0 10px var(--glow-color)); }
+        50% { filter: drop-shadow(0 0 15px var(--glow-color)) drop-shadow(0 0 25px var(--glow-color)); }
+      }
+      .glowing-key {
+        animation: pulse-key-glow 4s infinite ease-in-out;
+      }
+      .glowing-key-green { --glow-color: #4ade80; --glow-color-soft: rgba(74, 222, 128, 0.6); color: #4ade80; }
+      .glowing-key-yellow { --glow-color: #facc15; --glow-color-soft: rgba(250, 204, 21, 0.6); color: #facc15; }
+      .glowing-key-red { --glow-color: #f87171; --glow-color-soft: rgba(248, 113, 113, 0.6); color: #f87171; }
+      .glowing-key-blue { --glow-color: #60a5fa; --glow-color-soft: rgba(96, 165, 250, 0.6); color: #60a5fa; }
+
+      /* New: API Key Manager Banner */
+      .api-key-banner {
+        background: radial-gradient(ellipse at top, rgba(30, 58, 138, 0.8) 0%, rgba(17, 24, 39, 0.95) 100%);
+        border: 1px solid rgba(96, 165, 250, 0.4);
+        border-radius: 0.75rem;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 15px rgba(30, 58, 138, 0.5);
+      }
+      .api-key-banner:hover {
+        border-color: rgba(96, 165, 250, 0.7);
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), inset 0 0 20px rgba(30, 58, 138, 0.6);
+      }
+
+      /* New: Horus Forge button active state */
+      .forge-card-button:active {
+        transform: translateY(2px) scale(0.97);
+        box-shadow: 0 0 25px rgba(34, 211, 238, 0.5), inset 0 2px 10px rgba(0, 0, 0, 0.7);
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+      }
+      
+      /* Redesigned special buttons for a consistent glassy look */
+      .glowing-pixar-btn {
+        background: linear-gradient(to bottom, rgba(109, 40, 217, 0.4), rgba(34, 211, 238, 0.3));
+        border: 1px solid rgba(34, 211, 238, 0.4);
+        border-top-color: rgba(103, 232, 249, 0.6);
+        color: white;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(103, 232, 249, 0.2);
+        transition: all 0.3s ease-out;
+      }
+      .glowing-pixar-btn:hover {
+        background: linear-gradient(to bottom, rgba(126, 34, 206, 0.5), rgba(34, 211, 238, 0.4));
+        border-color: rgba(103, 232, 249, 0.7);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+      .glowing-pixar-btn:active {
+        transform: translateY(0);
+        transition-duration: 0.1s;
+      }
+
+      .glowing-8k-btn {
+        background: linear-gradient(to bottom, rgba(245, 158, 11, 0.4), rgba(234, 179, 8, 0.5));
+        border: 1px solid rgba(250, 204, 21, 0.4);
+        border-top-color: rgba(253, 224, 71, 0.6);
+        color: white;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(253, 224, 71, 0.2);
+        transition: all 0.3s ease-out;
+      }
+      .glowing-8k-btn:hover {
+        background: linear-gradient(to bottom, rgba(245, 158, 11, 0.5), rgba(234, 179, 8, 0.6));
+        border-color: rgba(253, 224, 71, 0.7);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+      .glowing-8k-btn:active {
+        transform: translateY(0);
+        transition-duration: 0.1s;
+      }
+
+      /* New Glassy Green Button for Image Inserter */
+      .glassy-green-btn {
+        background: linear-gradient(to bottom, rgba(16, 185, 129, 0.5), rgba(5, 150, 105, 0.6)); /* Emerald */
+        border: 1px solid rgba(22, 163, 74, 0.6); /* Green */
+        border-top-color: rgba(52, 211, 153, 0.8); /* Lighter green */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition: all 0.3s ease-out;
+        color: #f0fdf4; /* Very light green text */
+        text-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5),
+                    inset 0 1px 1px rgba(74, 222, 128, 0.5),
+                    inset 0 -2px 3px rgba(4, 120, 87, 0.6);
+      }
+      .glassy-green-btn:hover {
+        background: linear-gradient(to bottom, rgba(16, 185, 129, 0.6), rgba(5, 150, 105, 0.7));
+        border-color: rgba(22, 163, 74, 0.9);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6),
+                    inset 0 1px 2px rgba(74, 222, 128, 0.7),
+                    inset 0 -2px 5px rgba(4, 120, 87, 0.7);
+      }
+      .glassy-green-btn:disabled {
+        background: rgba(4, 120, 87, 0.25);
+        border-color: rgba(22, 163, 74, 0.2);
+        color: #a3a3a3;
+        cursor: not-allowed;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        text-shadow: none;
+        transform: translateY(0);
+      }
+
+    </style>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+  </body>
+</html>

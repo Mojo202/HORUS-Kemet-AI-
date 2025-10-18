@@ -1,0 +1,280 @@
+<!-- الرابط الثابت المخصص (Slug) -->
+[هنا-يتم-وضع-الرابط-المخصص]
+
+<!-- بيانات الميتا للتقنية -->
+<meta content="[عنوان مقال التقنية مع الكلمات المفتاحية]" name="headline">
+<meta content="[عنوان المقال لـ OG]" property="og:title">
+<meta content="[كلمات مفتاحية تقنية, برمجة, ذكاء اصطناعي, تكنولوجيا]" name="keywords">
+<meta content="[وصف مقال التقنية]" name="description">
+
+<!-- العنوان الرئيسي -->
+<h3><span style="font-size: large;">[عنوان مقال التقنية والبرمجة]</span></h3>
+
+<!-- المقدمة -->
+<div style="text-align: right;">
+[مقدمة تقنية تشرح الموضوع أو التقنية الجديدة]
+<a href="#ref1" id="cite1" style="color:#2196f3; font-weight:bold; text-decoration:none;">[1]</a>
+</div>
+
+<!-- الصورة التقنية -->
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="[رابط-صورة-التقنية.webp]" style="margin-left: auto; margin-right: auto; text-decoration:none;">
+<img alt="[وصف صورة التقنية]" border="0" data-original-height="853" data-original-width="1280" height="426" src="[رابط-صورة-مصغرة.webp]" title="[عنوان صورة التقنية]" width="640" />
+</a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">[تعليق صورة التقنية]</td>
+</tr>
+</tbody>
+</table>
+
+<!-- المحتوى التقني -->
+<div style="text-align: right;">
+[شرح تفصيلي للتقنية أو البرنامج مع أمثلة عملية]
+<a href="#ref2" id="cite2" style="color:#2196f3; font-weight:bold; text-decoration:none;">[2]</a>
+<span><!--more--></span>
+</div>
+
+<!-- الميزات والخصائص -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">الميزات والخصائص الرئيسية</span>
+</h3>
+<div style="text-align: right;">
+[قائمة بالميزات والخصائص التقنية]
+<a href="#ref3" id="cite3" style="color:#2196f3; font-weight:bold; text-decoration:none;">[3]</a>
+</div>
+
+<!-- طريقة الاستخدام -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">طريقة الاستخدام خطوة بخطوة</span>
+</h3>
+<div style="text-align: right;">
+[خطوات تفصيلية للاستخدام أو التطبيق]
+<a href="#ref4" id="cite4" style="color:#2196f3; font-weight:bold; text-decoration:none;">[4]</a>
+</div>
+
+<!-- أمثلة الكود (إن وجدت) -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">أمثلة عملية</span>
+</h3>
+<div style="text-align: right;">
+[أمثلة الكود أو التطبيقات العملية مع الشرح]
+<pre style="background-color: #f4f4f4; padding: 15px; border-radius: 5px; direction: ltr; text-align: left;">
+<code>
+[مثال الكود هنا]
+</code>
+</pre>
+<a href="#ref5" id="cite5" style="color:#2196f3; font-weight:bold; text-decoration:none;">[5]</a>
+</div>
+
+<!-- نصائح وحلول المشاكل -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">نصائح وحلول المشاكل الشائعة</span>
+</h3>
+<div style="text-align: right;">
+[نصائح تقنية وحلول للمشاكل المحتملة]
+</div>
+
+<!-- الخاتمة -->
+<div style="text-align: right;">
+[خاتمة تلخص الفوائد وتشجع على التطبيق العملي]
+</div>
+
+<!-- قسم المصادر -->
+<h3 style="text-align: right;"><span style="font-size: large;">المصادر</span></h3>
+<div style="text-align: right;">
+<ul style="list-style: none; padding: 0px;">
+  <li id="ref1" style="margin-bottom: 8px;">
+    <a href="#cite1" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[1]</a>
+    - <a href="[رابط_مصدر_التقنية_الأول]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر التقنية الأول]">[عنوان مصدر التقنية الأول]</a>
+  </li>
+  <li id="ref2" style="margin-bottom: 8px;">
+    <a href="#cite2" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[2]</a>
+    - <a href="[رابط_مصدر_التقنية_الثاني]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر التقنية الثاني]">[عنوان مصدر التقنية الثاني]</a>
+  </li>
+  <li id="ref3" style="margin-bottom: 8px;">
+    <a href="#cite3" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[3]</a>
+    - <a href="[رابط_مصدر_التقنية_الثالث]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر التقنية الثالث]">[عنوان مصدر التقنية الثالث]</a>
+  </li>
+  <li id="ref4" style="margin-bottom: 8px;">
+    <a href="#cite4" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[4]</a>
+    - <a href="[رابط_مصدر_التقنية_الرابع]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر التقنية الرابع]">[عنوان مصدر التقنية الرابع]</a>
+  </li>
+  <li id="ref5" style="margin-bottom: 8px;">
+    <a href="#cite5" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[5]</a>
+    - <a href="[رابط_مصدر_التقنية_الخامس]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر التقنية الخامس]">[عنوان مصدر التقنية الخامس]</a>
+  </li>
+</ul>
+</div>
+
+<!-- سكيما مقال التقنية -->
+<script id="techSchema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "[عنوان مقال التقنية]",
+  "description": "[وصف مقال التقنية]",
+  "datePublished": "__POST_DATE__",
+  "dateModified": "__POST_MODIFIED_DATE__",
+  "author": {
+    "@type": "Organization",
+    "name": "__AUTHOR_NAME__",
+    "url": "__AUTHOR_URL__"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "__SITE_NAME__",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "__SITE_LOGO__"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "__POST_URL__"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "[رابط الصورة الرئيسية]",
+    "width": 1280,
+    "height": 853
+  },
+  "articleSection": "Technology",
+  "keywords": "[كلمات مفتاحية التقنية]",
+  "dependencies": "[التبعيات التقنية إن وجدت]",
+  "proficiencyLevel": "Beginner"
+}
+</script>
+
+
+<!-- سكيما الأسئلة والأجوبة-->
+
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>

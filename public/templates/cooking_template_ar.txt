@@ -1,0 +1,312 @@
+<!-- الرابط الثابت المخصص (Slug) -->
+[هنا-يتم-وضع-الرابط-المخصص]
+
+<!-- بيانات الميتا للوصفة -->
+<meta content="[عنوان الوصفة مع الكلمات المفتاحية]" name="headline">
+<meta content="[عنوان الوصفة لـ OG]" property="og:title">
+<meta content="[كلمات مفتاحية الطبخ]" name="keywords">
+<meta content="[وصف الوصفة]" name="description">
+
+<!-- العنوان الرئيسي -->
+<h2 style="text-align: right;"><span style="color: #990000; font-size: medium;">[عنوان الوصفة]</span></h2>
+
+<!-- المقدمة -->
+<div style="text-align: right;">
+مرحبا بكم زوار <b><span style="color: #38761d;">مطبخ</span><span style="color: #990000;">&nbsp;</span></b><b><span style="color: #990000;">سوسو</span></b>|🍝 وصفات سهلة! اليوم سنقدم لكم [وصف الطبق]. [وصف تفصيلي للوصفة مع الكلمات المفتاحية].
+</div>
+
+<!-- الصورة الرئيسية -->
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="[رابط-الصورة.webp]" style="margin-left: auto; margin-right: auto; text-decoration:none;">
+<img alt="[وصف الصورة]" border="0" data-original-height="810" data-original-width="1440" height="360" src="[رابط-الصورة-مصغرة.webp]" title="[عنوان الصورة]" width="640" />
+</a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">[تعليق الصورة]</td>
+</tr>
+</tbody>
+</table>
+
+<!-- المقدمة الثانية -->
+<div style="text-align: right;">
+في <b><span style="color: #38761d;">مطبخ</span><span style="color: #990000;">&nbsp;</span></b><b><span style="color: #990000;">سوسو</span></b>، نحب الوصفات التي ترسم البسمة على الوجوه. [تفاصيل إضافية عن الوصفة].
+<span><!--more--></span>
+</div>
+
+<!-- خطوات التحضير -->
+<h3 style="text-align: center;"><span style="color: #990000; font-size: large;">خطوات التحضير</span></h3>
+<ol style="text-align: right;">
+<li><b>[الخطوة الأولى]:</b> [وصف تفصيلي للخطوة]</li>
+<li><b>[الخطوة الثانية]:</b> [وصف تفصيلي للخطوة]</li>
+<li><b>[الخطوة الثالثة]:</b> [وصف تفصيلي للخطوة]</li>
+<li><b>[الخطوة الرابعة]:</b> [وصف تفصيلي للخطوة]</li>
+<li><b>[الخطوة الخامسة]:</b> [وصف تفصيلي للخطوة]</li>
+<li><b>[الخطوة الأخيرة]:</b> [وصف تفصيلي للخطوة النهائية]</li>
+</ol>
+
+<!-- جدول المقادير -->
+<h3 style="text-align: center;"><span style="color: #990000; font-size: large;">جدول المقادير</span></h3>
+<div id="ingredient-table-container">
+<table class="main-table">
+<thead>
+<tr><th>المقادير</th><th>الكمية</th><th>ملاحظات</th></tr>
+</thead>
+<tbody>
+<tr><td>[المكون الأول]</td><td>[الكمية]</td><td>[ملاحظة]</td></tr>
+<tr><td>[المكون الثاني]</td><td>[الكمية]</td><td>[ملاحظة]</td></tr>
+<tr><td>[المكون الثالث]</td><td>[الكمية]</td><td>[ملاحظة]</td></tr>
+<tr><td>[المكون الرابع]</td><td>[الكمية]</td><td>[ملاحظة]</td></tr>
+<tr><td>[المكون الخامس]</td><td>[الكمية]</td><td>[ملاحظة]</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- جدول الأوقات -->
+<h3 style="text-align: center;"><span style="color: #990000; font-size: large;">الوقت لكل خطوة</span></h3>
+<div id="recipe-times-table-container">
+<table class="main-table">
+<thead>
+<tr><th>الوقت</th><th>المدة</th></tr>
+</thead>
+<tbody>
+<tr><td>وقت التحضير</td><td><span class="prep-time">[PT##M]</span></td></tr>
+<tr><td>وقت الطهي</td><td><span class="cook-time">[PT##M]</span></td></tr>
+<tr><td>الوقت الإجمالي</td><td><span class="total-time">[PT##M]</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- عدد الأفراد -->
+<h3 style="text-align: center;"><span style="color: #990000; font-size: large;">عدد الأفراد</span></h3>
+<div id="recipe-yield-table-container">
+<table class="main-table">
+<thead>
+<tr><th>الوصفة تكفي</th></tr>
+</thead>
+<tbody>
+<tr><td><span class="recipe-yield">[عدد الأشخاص]</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- نصائح ذهبية -->
+<h3 style="text-align: right;"><span style="color: #990000; font-size: x-large;">نصائح ذهبية لتحضير [اسم الطبق] لا يُنسى</span></h3>
+<div style="text-align: right;">
+للحصول على <b>[اسم الطبق] مثالي</b> ينافس أشهر المطاعم، إليكم بعض الأسرار والنصائح من خبرتي في المطبخ:
+<ol style="text-align: right;">
+<li><b>[نصيحة أولى]:</b> [تفسير النصيحة]</li>
+<li><b>[نصيحة ثانية]:</b> [تفسير النصيحة]</li>
+<li><b>[نصيحة ثالثة]:</b> [تفسير النصيحة]</li>
+<li><b>[نصيحة رابعة]:</b> [تفسير النصيحة]</li>
+<li><b>[نصيحة خامسة]:</b> [تفسير النصيحة]</li>
+<li><b>[نصيحة سادسة]:</b> [تفسير النصيحة]</li>
+</ol>
+</div>
+
+<!-- الخاتمة -->
+<div style="text-align: right;">
+وبهذا نكون قد وصلنا لختام وصفتنا اليوم، <b>[اسم الطبق]</b>. نتمنى أن تجربوها وتشاركونا آراءكم وتطبيقاتكم. لا تنسوا <b>الاشتراك في موقع <span style="color: #38761d;">مطبخ</span><span style="color: #990000;">&nbsp;</span></b><b><span style="color: #990000;">سوسو</span>&nbsp;</b>ليصلكم كل ما هو جديد ومميز في عالم الطبخ. بالهناء والشفاء، ونلتقي في وصفة قادمة قريباً!
+</div>
+
+<!-- سكيما الوصفة -->
+<script id="recipeSchema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "[اسم الوصفة]",
+  "image": ["[رابط صورة الوصفة]"],
+  "author": {
+	"@type": "Organization",
+	"name": "__AUTHOR_NAME__"
+  },
+  "datePublished": "__POST_DATE__",
+  "description": "[وصف الوصفة]",
+  "prepTime": "[PT##M]",
+  "cookTime": "[PT##M]",
+  "totalTime": "[PT##M]",
+  "keywords": "[كلمات مفتاحية للوصفة]",
+  "recipeYield": ["[عدد الحصص]"],
+  "recipeCategory": "[فئة الوصفة]",
+  "recipeCuisine": "[نوع المطبخ]",
+  "nutrition": {
+	"@type": "NutritionInformation",
+	"calories": "[عدد السعرات]"
+  },
+  "recipeIngredient": [
+	"[المكون الأول]",
+	"[المكون الثاني]",
+	"[المكون الثالث]",
+	"[المكون الرابع]",
+	"[المكون الخامس]"
+  ],
+  "recipeInstructions": [
+	{
+  	"@type": "HowToStep",
+  	"name": "[اسم الخطوة الأولى]",
+  	"text": "[تفاصيل الخطوة الأولى]",
+  	"url": "__POST_URL__#step1"
+	},
+	{
+  	"@type": "HowToStep",
+  	"name": "[اسم الخطوة الثانية]",
+  	"text": "[تفاصيل الخطوة الثانية]",
+  	"url": "__POST_URL__#step2"
+	},
+	{
+  	"@type": "HowToStep",
+  	"name": "[اسم الخطوة الثالثة]",
+  	"text": "[تفاصيل الخطوة الثالثة]",
+  	"url": "__POST_URL__#step3"
+	},
+	{
+  	"@type": "HowToStep",
+  	"name": "[اسم الخطوة الرابعة]",
+  	"text": "[تفاصيل الخطوة الرابعة]",
+  	"url": "__POST_URL__#step4"
+	},
+	{
+  	"@type": "HowToStep",
+  	"name": "[اسم الخطوة الخامسة]",
+  	"text": "[تفاصيل الخطوة الخامسة]",
+  	"url": "__POST_URL__#step5"
+	}
+  ],
+  "aggregateRating": {
+	"@type": "AggregateRating",
+	"ratingValue": "[متوسط التقييم]",
+	"reviewCount": "5"
+  }
+}
+</script>
+
+<!-- سكيما الأسئلة والأجوبة-->
+
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>

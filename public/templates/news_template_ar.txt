@@ -1,0 +1,218 @@
+<!-- الرابط الثابت المخصص (Slug) -->
+[هنا-يتم-وضع-الرابط-المخصص]
+
+<!-- بيانات الميتا للمقال (SEO Meta Data) -->
+<meta content="[اكتب هنا عنوان جذاب للمقال يتضمن الكلمات المفتاحية]" name="headline">
+<meta content="[اكتب هنا عنوان المقال الرسمي لـ OG]" property="og:title">
+<meta content="[اكتب هنا الكلمات المفتاحية الرئيسية مفصولة بفاصلة]" name="keywords">
+<meta content="[اكتب هنا وصف قصير وموجز للمقال لا يتجاوز 160 حرفًا]" name="description">
+
+<!-- العنوان الرئيسي للمقال -->
+<h3><span style="font-size: large;">[اكتب هنا العنوان الرئيسي الأول للمقال]</span></h3>
+
+<!-- الفقرة الافتتاحية -->
+<div style="text-align: right;">
+[اكتب هنا الفقرة الافتتاحية للمقال، مع استخدام <b>الكلمات المفتاحية</b> بشكل طبيعي]
+<a href="#ref1" id="cite1" style="color:#2196f3; font-weight:bold; text-decoration:none;">[1]</a>
+</div>
+<div style="text-align: right;"><br /></div>
+
+<!-- الصورة الرئيسية للمقال -->
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="[رابط-الصورة.webp]" style="margin-left: auto; margin-right: auto; text-decoration:none;">
+<img alt="[وصف دقيق للصورة يتضمن الكلمات المفتاحية]" border="0" data-original-height="853" data-original-width="1280" height="426" src="[رابط-الصورة-بحجم-أصغر.webp]" title="[عنوان الصورة يوضح محتواها]" width="640" />
+</a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">[تعليق توضيحي قصير أسفل الصورة]</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: right;"><br /></div>
+
+<!-- الفقرة الثانية (قبل علامة المزيد) -->
+<div style="text-align: right;">
+[اكتب هنا فقرة تمهيدية أخرى قبل علامة "المزيد"]
+<a href="#ref2" id="cite2" style="color:#2196f3; font-weight:bold; text-decoration:none;">[2]</a>
+<span><!--more--></span>
+</div>
+
+<!-- العناوين الفرعية -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">[اكتب هنا العنوان الفرعي الثاني]</span>
+</h3>
+<div style="text-align: right;">
+[اكتب هنا الفقرات الخاصة بالعنوان الفرعي الثاني]
+<a href="#ref3" id="cite3" style="color:#2196f3; font-weight:bold; text-decoration:none;">[3]</a>
+</div>
+<div style="text-align: right;"><br /></div>
+
+<h3 style="text-align: right;">
+<span style="font-size: large;">[اكتب هنا العنوان الفرعي الثالث]</span>
+</h3>
+<div style="text-align: right;">
+[اكتب هنا الفقرات الخاصة بالعنوان الفرعي الثالث]
+<a href="#ref4" id="cite4" style="color:#2196f3; font-weight:bold; text-decoration:none;">[4]</a>
+</div>
+<div style="text-align: right;"><br /></div>
+
+<!-- الفقرة الختامية -->
+<div style="text-align: right;">
+[اكتب هنا الفقرة الختامية للمقال]
+</div>
+<div style="text-align: right;"><br /></div>
+
+<!-- قسم المصادر -->
+<h3 style="text-align: right;"><span style="font-size: large;">المصادر</span></h3>
+<div style="text-align: right;">
+<ul style="list-style: none; padding: 0px;">
+  <li id="ref1" style="margin-bottom: 8px;">
+	<a href="#cite1" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[1]</a>
+	- <a href="[رابط_المصدر_الأول]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الأول]">[عنوان المصدر الأول]</a>
+  </li>
+  <li id="ref2" style="margin-bottom: 8px;">
+	<a href="#cite2" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[2]</a>
+	- <a href="[رابط_المصدر_الثاني]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الثاني]">[عنوان المصدر الثاني]</a>
+  </li>
+  <li id="ref3" style="margin-bottom: 8px;">
+	<a href="#cite3" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[3]</a>
+	- <a href="[رابط_المصدر_الثالث]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الثالث]">[عنوان المصدر الثالث]</a>
+  </li>
+  <li id="ref4" style="margin-bottom: 8px;">
+	<a href="#cite4" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[4]</a>
+	- <a href="[رابط_المصدر_الرابع]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان المصدر الرابع]">[عنوان المصدر الرابع]</a>
+  </li>
+</ul>
+</div>
+
+<!-- سكيما الأسئلة والأجوبة-->
+
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>

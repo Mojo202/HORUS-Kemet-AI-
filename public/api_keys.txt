@@ -1,0 +1,22 @@
+# ---------------------------------------------------
+# ملف المفاتيح الشامل لأداة حورس
+# ---------------------------------------------------
+# انسخ المفاتيح الخاصة بك هنا بنفس التنسيق.
+# يمكنك إضافة أي عدد من مفاتيح GEMINI.
+# سيتم استخدام مفتاح IMGBB و YOUTUBE الأول الذي يتم العثور عليه.
+# ---------------------------------------------------
+
+# -- مفاتيح Gemini API --
+GEMINI=AIzaSyDO8ze5VKeU1lzepvPsBTomKLpmkD31FHY
+GEMINI=AIzaSyAgHv0aBN9whdlDsn-sCS_glQXY7PEo59E
+GEMINI=AIzaSyBz882sUGZ-Gz_RY8XrvjqG_2H1xxR7oZg
+GEMINI=AIzaSyAtSaqvtH-eKSbvoeUpMn1ssHwDlonIOoM
+GEMINI=AIzaSyCnzdDDL1TNlBl9kwh7F6HbzADKDdICcHc
+GEMINI=AIzaSyCFxTL_EixHcTJUfWJbS4XhZv7tcSbd6vQ
+
+# -- مفاتيح ImgBB API --
+IMGBB=90973037ac0ecf3e6d9acb5136a3e757
+IMGBB=54a82e1b322443156bf217aa48884cfe
+
+# -- مفتاح YouTube Data API --
+YOUTUBE=AIzaSyCIFl-yril-715SKM6iMugnDhlmqJpknxs

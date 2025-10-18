@@ -1,0 +1,272 @@
+<!-- الرابط الثابت المخصص (Slug) -->
+[هنا-يتم-وضع-الرابط-المخصص]
+
+<!-- بيانات الميتا للجمال -->
+<meta content="[عنوان مقال الجمال مع الكلمات المفتاحية]" name="headline">
+<meta content="[عنوان المقال لـ OG]" property="og:title">
+<meta content="[كلمات مفتاحية جمال, عناية, مكياج, أزياء]" name="keywords">
+<meta content="[وصف مقال الجمال]" name="description">
+
+<!-- العنوان الرئيسي -->
+<h3><span style="font-size: large;">[عنوان مقال الجمال والعناية]</span></h3>
+
+<!-- المقدمة -->
+<div style="text-align: right;">
+[مقدمة جذابة حول موضوع الجمال أو العناية]
+<a href="#ref1" id="cite1" style="color:#2196f3; font-weight:bold; text-decoration:none;">[1]</a>
+</div>
+
+<!-- الصورة الجمالية -->
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="[رابط-صورة-الجمال.webp]" style="margin-left: auto; margin-right: auto; text-decoration:none;">
+<img alt="[وصف صورة الجمال]" border="0" data-original-height="853" data-original-width="1280" height="426" src="[رابط-صورة-مصغرة.webp]" title="[عنوان صورة الجمال]" width="640" />
+</a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">[تعليق صورة الجمال]</td>
+</tr>
+</tbody>
+</table>
+
+<!-- المحتوى الأساسي -->
+<div style="text-align: right;">
+[محتوى تفصيلي حول موضوع الجمال مع نصائح عملية]
+<a href="#ref2" id="cite2" style="color:#2196f3; font-weight:bold; text-decoration:none;">[2]</a>
+<span><!--more--></span>
+</div>
+
+<!-- نصائح العناية -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">نصائح العناية الأساسية</span>
+</h3>
+<div style="text-align: right;">
+[نصائح عملية للعناية بالبشرة أو الشعر أو المكياج]
+<a href="#ref3" id="cite3" style="color:#2196f3; font-weight:bold; text-decoration:none;">[3]</a>
+</div>
+
+<!-- المنتجات المُوصى بها -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">المنتجات المُوصى بها</span>
+</h3>
+<div style="text-align: right;">
+[قائمة بالمنتجات المناسبة مع شرح فوائدها]
+<a href="#ref4" id="cite4" style="color:#2196f3; font-weight:bold; text-decoration:none;">[4]</a>
+</div>
+
+<!-- خطوات التطبيق -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">خطوات التطبيق</span>
+</h3>
+<div style="text-align: right;">
+[خطوات مفصلة لتطبيق نصائح الجمال أو المكياج]
+<a href="#ref5" id="cite5" style="color:#2196f3; font-weight:bold; text-decoration:none;">[5]</a>
+</div>
+
+<!-- الأخطاء الشائعة -->
+<h3 style="text-align: right;">
+<span style="font-size: large;">أخطاء يجب تجنبها</span>
+</h3>
+<div style="text-align: right;">
+[قائمة بالأخطاء الشائعة وكيفية تجنبها]
+</div>
+
+<!-- الخاتمة -->
+<div style="text-align: right;">
+[خاتمة تشجع على تطبيق النصائح والعناية بالجمال الطبيعي]
+</div>
+
+<!-- قسم المصادر -->
+<h3 style="text-align: right;"><span style="font-size: large;">المصادر</span></h3>
+<div style="text-align: right;">
+<ul style="list-style: none; padding: 0px;">
+  <li id="ref1" style="margin-bottom: 8px;">
+    <a href="#cite1" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[1]</a>
+    - <a href="[رابط_مصدر_الجمال_الأول]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الجمال الأول]">[عنوان مصدر الجمال الأول]</a>
+  </li>
+  <li id="ref2" style="margin-bottom: 8px;">
+    <a href="#cite2" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[2]</a>
+    - <a href="[رابط_مصدر_الجمال_الثاني]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الجمال الثاني]">[عنوان مصدر الجمال الثاني]</a>
+  </li>
+  <li id="ref3" style="margin-bottom: 8px;">
+    <a href="#cite3" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[3]</a>
+    - <a href="[رابط_مصدر_الجمال_الثالث]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الجمال الثالث]">[عنوان مصدر الجمال الثالث]</a>
+  </li>
+  <li id="ref4" style="margin-bottom: 8px;">
+    <a href="#cite4" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[4]</a>
+    - <a href="[رابط_مصدر_الجمال_الرابع]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الجمال الرابع]">[عنوان مصدر الجمال الرابع]</a>
+  </li>
+  <li id="ref5" style="margin-bottom: 8px;">
+    <a href="#cite5" style="color:#2196f3; font-weight:normal; text-decoration:none;" title="اذهب لمكان الاقتباس في النص">[5]</a>
+    - <a href="[رابط_مصدر_الجمال_الخامس]" rel="noopener noreferrer nofollow" style="color:#2196f3; text-decoration:underline !important;" target="_blank" title="[عنوان مصدر الجمال الخامس]">[عنوان مصدر الجمال الخامس]</a>
+  </li>
+</ul>
+</div>
+
+<!-- سكيما مقال الجمال -->
+<script id="beautySchema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[عنوان مقال الجمال]",
+  "description": "[وصف مقال الجمال]",
+  "datePublished": "__POST_DATE__",
+  "dateModified": "__POST_MODIFIED_DATE__",
+  "author": {
+    "@type": "Organization",
+    "name": "__AUTHOR_NAME__",
+    "url": "__AUTHOR_URL__"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "__SITE_NAME__",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "__SITE_LOGO__"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "__POST_URL__"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "[رابط الصورة الرئيسية]",
+    "width": 1280,
+    "height": 853
+  },
+  "articleSection": "Beauty & Fashion",
+  "keywords": "[كلمات مفتاحية الجمال]"
+}
+</script>
+
+<!-- سكيما الأسئلة والأجوبة-->
+
+<script id="qaData" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "لاتكتب فيها شئ يتم توليدها ديناميكيا",
+    "text": "[اكتب هنا السؤال الرئيسي الذي يلخص المقال]",
+    "datePublished": "__POST_DATE__",
+    "dateModified": "__POST_MODIFIED_DATE__",
+    "author": {
+      "@type": "Person",
+      "name": "__AUTHOR_NAME__",
+      "url": "__AUTHOR_URL__"
+    },
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "[اكتب هنا الاجابة المختصرة والشاملة للسؤال الرئيسي]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "url": "__POST_URL__",
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      }
+    }
+  },
+  "hasPart": [
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الاول]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الاول]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الثاني]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الثاني]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي التالت]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي التالت]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "text": "[اكتب هنا السؤال الفرعي الرابع]",
+      "datePublished": "__POST_DATE__",
+      "dateModified": "__POST_MODIFIED_DATE__",
+      "answerCount": 1,
+      "author": {
+        "@type": "Person",
+        "name": "__AUTHOR_NAME__",
+        "url": "__AUTHOR_URL__"
+      },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[اكتب هنا الاجابة على السؤال الفرعي الرابع ]",
+        "datePublished": "__POST_DATE__",
+        "dateModified": "__POST_MODIFIED_DATE__",
+        "author": {
+          "@type": "Person",
+          "name": "__AUTHOR_NAME__",
+          "url": "__AUTHOR_URL__"
+        }
+      }
+    }
+  ]
+}
+</script>
