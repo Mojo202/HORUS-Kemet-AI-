@@ -7,9 +7,9 @@ import { extractJsonString } from '../utils/parser';
 import { getHorusProtocol, MEDICAL_IMAGE_PROMPT_TEMPLATE } from './horusProtocol';
 import { convertToWebp } from "../utils/image";
 import { HORUS_TEMPLATES } from './horusTemplates';
-// 🎨 Import Pollinations.ai service for FREE image generation (no API key needed!)
-import { generateImageWithPollinations, generateImageWithPollinationsTurbo } from './huggingfaceService';
-
+// 🎨 Import FREE image generation services
+import { generateImageWithPollinations } from './huggingfaceService';
+import { generateImageWithOpenRouter } from './openrouterService';
 
 /**
  * Performs a request to the Gemini API, with robust handling for multiple API keys and retries.
@@ -60,15 +60,16 @@ async function performGeminiRequest<T>(
                     );
                 }
 
+                // 🔧 FIX: Don't throw error for quota - let it continue to try other keys!
                 if (errorMessage.includes('RESOURCE_EXHAUSTED') || 
                     errorMessage.toLowerCase().includes('quota') || 
                     errorMessage.includes('429')) {
-                    throw new Error(
-                        "انتهت حصتك على حساب Google AI الخاص بك (Quota Exceeded). قد تحتاج إلى التحقق من حالة الفوترة في Google AI Studio أو الانتظار حتى يتم تجديد الحصة."
-                    );
+                    log('⚠️ هذا المفتاح وصل للحد الأقصى، جاري تجربة المفتاح التالي...');
+                    // Don't throw - continue to next key
+                } else {
+                    // For other errors, throw on last attempt
+                    throw error;
                 }
-                
-                throw error; // Re-throw original for other errors
             }
         }
     }
@@ -318,13 +319,13 @@ export async function generateImageAndUrl(
 
             // Construct the final mega-prompt based on the user's protocol structure.
             finalPrompt = `
-أنشئ صورة ${protectedPrompt}
+               أنشئ صورة ${protectedPrompt}
 
-| التفاصيل الفنية: دقة 8K - Ultra HD - Octane Render - Volumetric Lighting - Hyperrealistic - Sharp Focus - Wide Angle - Dramatic Color Palette.
+                | التفاصيل الفنية: دقة 8K - Ultra HD - Octane Render - Volumetric Lighting - Hyperrealistic - Sharp Focus - Wide Angle - Dramatic Color Palette.
 
-| التصنيف: عمل فني رقمي خيالي - فن تشبيهي غير واقعي - رموز فنية مجردة - لا يمثل أشخاصاً حقيقيين - تشابه مع الواقع غير مقصود.
+                | التصنيف: عمل فني رقمي خيالي - فن تشبيهي غير واقعي - رموز فنية مجردة - لا يمثل أشخاصاً حقيقيين - تشابه مع الواقع غير مقصود.
 
-| ملاحظة: تم الإنشاء لأغراض فنية وتعليمية بحتة. يجب أن تكون الملامح مستوحاة من الطبيعة البشرية ولكنها ليست تمثيلاً لأي شخص حقيقي. استخدم الرمزية المجردة للمواضيع الحساسة.
+                | ملاحظة: تم الإنشاء لأغراض فنية وتعليمية بحتة. يجب أن تكون الملامح مستوحاة من الطبيعة البشرية ولكنها ليست تمثيلاً لأي شخص حقيقي. استخدم الرمزية المجردة للمواضيع الحساسة.
             `;
             qualitySuffixAdded = true; // The protocol has its own quality settings.
         }
