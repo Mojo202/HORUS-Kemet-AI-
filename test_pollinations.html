@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Pollinations.ai</title>
+    <script type="module">
+        async function testPollinations() {
+            const prompt = "A beautiful sunset over mountains, 8K resolution, ultra high quality, vibrant colors";
+            const encodedPrompt = encodeURIComponent(prompt);
+            const imageUrl = ;
+            
+            console.log('Testing Pollinations.ai...');
+            console.log('Image URL:', imageUrl);
+            
+            const img = document.getElementById('testImage');
+            img.src = imageUrl;
+            img.onload = () => {
+                console.log('✅ Image loaded successfully!');
+                document.getElementById('status').textContent = '✅ Pollinations.ai works perfectly!';
+            };
+            img.onerror = () => {
+                console.log('❌ Image failed to load');
+                document.getElementById('status').textContent = '❌ Failed to load image';
+            };
+        }
+        
+        window.onload = testPollinations;
+    </script>
+</head>
+<body style="font-family: Arial; padding: 20px; text-align: center;">
+    <h1>🎨 Testing Pollinations.ai</h1>
+    <p id="status">⏳ Loading image...</p>
+    <img id="testImage" style="max-width: 512px; border: 2px solid #ccc; margin-top: 20px;" />
+</body>
+</html>
