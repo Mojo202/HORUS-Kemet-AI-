@@ -388,7 +388,7 @@ export async function generateImageAndUrl(
         log('🎨 لا توجد مفاتيح Gemini، استخدام Pollinations.ai مباشرة (مجاني 100%)...');
         
         try {
-            const pollinationsBase64 = await generateImageWithPollinations(finalPrompt, log);
+            const pollinationsBase64 = await generateImageWithPollinations(finalPrompt, log, options?.aspectRatio);
             const pollinationsDataUrl = `data:image/png;base64,${pollinationsBase64}`;
             
             const webpDataUrl = await convertToWebp(pollinationsDataUrl, options?.quality || 0.9);

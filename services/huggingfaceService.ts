@@ -12,15 +12,43 @@
  */
 export async function generateImageWithPollinations(
     prompt: string,
-    log: (message: string) => void
+    log: (message: string) => void,
+    aspectRatio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4'
 ): Promise<string> {
     log('🎨 بدء توليد الصورة باستخدام Pollinations.ai (مجاني 100%)...');
     
     try {
-        // Pollinations.ai URL format: https://image.pollinations.ai/prompt/{encoded_prompt}
-        // Additional parameters: ?width=1024&height=1024&model=flux&seed=random&nologo=true
+        // Calculate dimensions based on aspect ratio
+        let width = 1024;
+        let height = 1024;
+        
+        switch (aspectRatio) {
+            case '16:9':
+                width = 1024;
+                height = 576;
+                break;
+            case '9:16':
+                width = 576;
+                height = 1024;
+                break;
+            case '4:3':
+                width = 1024;
+                height = 768;
+                break;
+            case '3:4':
+                width = 768;
+                height = 1024;
+                break;
+            case '1:1':
+            default:
+                width = 1024;
+                height = 1024;
+        }
+        
+        log(`📐 استخدام مقاس: ${width}x${height} (${aspectRatio || '1:1'})`);
+        
         const encodedPrompt = encodeURIComponent(prompt);
-        const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1024&height=1024&model=flux&seed=${Date.now()}&nologo=true&enhance=true`;
+        const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${width}&height=${height}&model=flux&seed=${Date.now()}&nologo=true&enhance=true`;
         
         log('🌐 جاري تحميل الصورة من Pollinations.ai...');
         
