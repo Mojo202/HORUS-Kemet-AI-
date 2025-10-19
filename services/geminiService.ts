@@ -379,7 +379,36 @@ export async function generateImageAndUrl(
     
     log(`🖼️ استخدام برومبت الصورة النهائي: "${finalPrompt.substring(0, 150)}..."`);
     
-    // 🎯 Try Imagen first, fallback to Hugging Face if it fails
+    // 🎯 Smart decision: Use Pollinations directly if no Gemini keys available
+    const hasGeminiKeys = apiKeyManager.getTotalGeminiKeys() > 0;
+    
+    if (!hasGeminiKeys) {
+        // No Gemini keys - use Pollinations.ai directly (100% FREE!)
+        log('🎨 لا توجد مفاتيح Gemini، استخدام Pollinations.ai مباشرة (مجاني 100%)...');
+        
+        try {
+            const pollinationsBase64 = await generateImageWithPollinations(finalPrompt, log);
+            const pollinationsDataUrl = `data:image/png;base64,${pollinationsBase64}`;
+            
+            const webpDataUrl = await convertToWebp(pollinationsDataUrl, options?.quality || 0.9);
+            log('🖼️ اكتمل التحويل إلى WebP.');
+
+            if (imgbbApiKey) {
+                log('☁️ رفع الصورة إلى خدمة الاستضافة...');
+                const webpBase64 = webpDataUrl.split(',')[1];
+                const hostedUrl = await uploadImageToHost(webpBase64, imgbbApiKey, slug);
+                log('✅ تم رفع الصورة بنجاح باستخدام Pollinations.ai!');
+                return { imageUrl: hostedUrl, warning: '✨ تم توليد الصورة باستخدام Pollinations.ai (مجاني 100%)' };
+            } else {
+                return { imageUrl: webpDataUrl, warning: '✨ تم توليد الصورة باستخدام Pollinations.ai (مجاني 100%)' };
+            }
+        } catch (pollinationsError: any) {
+            log(`❌ فشل Pollinations.ai: ${pollinationsError.message}`);
+            throw new Error(`فشل توليد الصورة: ${pollinationsError.message}`);
+        }
+    }
+    
+    // Has Gemini keys - try Imagen first, fallback to Pollinations if it fails
     try {
         const response = await performGeminiRequest<GenerateImagesResponse>(client => client.models.generateImages({
             model: imageModel,
