@@ -132,6 +132,8 @@ export interface ApiKey {
 export interface AppSettings {
   geminiApiKeys: ApiKey[];
   activeGeminiKeyIndex: number;
+  openaiApiKeys: ApiKey[];
+  activeOpenAIKeyIndex: number;
   imgbbApiKey: ApiKey;
   youtubeApiKey: ApiKey;
 }

@@ -209,7 +209,7 @@ const ContentCreationPage: React.FC<ContentCreationPageProps> = ({ contentType, 
                         onStopGeneration={handleStopGeneration}
                         isGenerating={isGenerating}
                         isGeneratingAll={isGeneratingAll}
-                        isDisabled={parsedArticles.length === 0 || !apiKeyManager.hasGeminiKeys() || (contentType === ContentType.News && (selectedNewsSubCategories || []).length === 0)}
+                        isDisabled={parsedArticles.length === 0 || (!apiKeyManager.hasGeminiKeys() && !apiKeyManager.hasOpenAIKeys()) || (contentType === ContentType.News && (selectedNewsSubCategories || []).length === 0)}
                         wordCount={wordCount}
                         setWordCount={setWordCount}
                         manualSourcesInput={manualSourcesInput}
@@ -303,6 +303,8 @@ const App: React.FC = () => {
   
   const [geminiApiKeys, setGeminiApiKeys] = useState<ApiKey[]>([]);
   const [activeKeyIndex, setActiveKeyIndex] = useState<number>(0);
+  const [openaiApiKeys, setOpenaiApiKeys] = useState<ApiKey[]>([]);
+  const [activeOpenAIKeyIndex, setActiveOpenAIKeyIndex] = useState<number>(0);
   const [imgbbApiKey, setImgbbApiKey] = useState<ApiKey>({ key: '', status: 'unknown' });
   const [youtubeApiKey, setYoutubeApiKey] = useState<ApiKey>({ key: '', status: 'unknown' });
   
@@ -525,8 +527,8 @@ const App: React.FC = () => {
     }, [logStatus]);
 
     const handleGenerateArticle = useCallback(async (index: number, pageCustomPersona: { instructions: string; htmlTemplate: string; }): Promise<boolean> => {
-        if (currentPage === 'home' || !apiKeyManager.hasGeminiKeys()) {
-          setError("يرجى إضافة مفتاح Gemini API واحد على الأقل في قسم 'إدارة مفاتيح API'.");
+        if (currentPage === 'home' || (!apiKeyManager.hasGeminiKeys() && !apiKeyManager.hasOpenAIKeys())) {
+          setError("يرجى إضافة مفتاح Gemini API أو OpenAI API واحد على الأقل في قسم 'إدارة مفاتيح API'.");
           return false;
         }
         if (stopGenerationRef.current) return false;
@@ -874,6 +876,8 @@ const App: React.FC = () => {
     const settings = apiKeyManager.loadSettings();
     setGeminiApiKeys(settings.geminiApiKeys || []);
     setActiveKeyIndex(settings.activeGeminiKeyIndex || 0);
+    setOpenaiApiKeys(settings.openaiApiKeys || []);
+    setActiveOpenAIKeyIndex(settings.activeOpenAIKeyIndex || 0);
     setImgbbApiKey(settings.imgbbApiKey || { key: '', status: 'unknown' });
     setYoutubeApiKey(settings.youtubeApiKey || { key: '', status: 'unknown' });
   }, []);
@@ -1037,7 +1041,9 @@ const App: React.FC = () => {
       const globalProps = {
         theme, setTheme, error, setError, warning, setWarning, 
         geminiApiKeys, setGeminiApiKeys, 
-        activeKeyIndex, setActiveKeyIndex, 
+        activeKeyIndex, setActiveKeyIndex,
+        openaiApiKeys, setOpenaiApiKeys,
+        activeOpenAIKeyIndex, setActiveOpenAIKeyIndex,
         imgbbApiKey, setImgbbApiKey,
         youtubeApiKey, setYoutubeApiKey,
         globalCustomPersona, setGlobalCustomPersona,

@@ -10,6 +10,44 @@ import { HORUS_TEMPLATES } from './horusTemplates';
 // 🎨 Import FREE image generation services
 import { generateImageWithPollinations } from './huggingfaceService';
 import { generateImageWithOpenRouter } from './openrouterService';
+import { generateImageWithOpenAI, generateTextWithOpenAI } from './openaiService';
+
+/**
+ * Performs a request using the best available service (Gemini or OpenAI)
+ * @param requestFn The function that makes the actual API call with a given client.
+ * @param log A logging function for status updates.
+ * @returns The result of the requestFn.
+ */
+async function performTextRequest<T>(
+    requestFn: (client: GoogleGenAI) => Promise<T>,
+    log: (message: string) => void
+): Promise<T> {
+    const hasGeminiKeys = apiKeyManager.getTotalGeminiKeys() > 0;
+    const hasOpenAIKeys = apiKeyManager.getTotalOpenAIKeys() > 0;
+    
+    // Try Gemini first if available
+    if (hasGeminiKeys) {
+        try {
+            return await performGeminiRequest(requestFn, log);
+        } catch (error: any) {
+            log(`⚠️ فشل Gemini: ${error.message}`);
+            if (hasOpenAIKeys) {
+                log('🔄 التبديل إلى OpenAI...');
+                // Fallback to OpenAI will be handled by the calling function
+                throw new Error('GEMINI_FAILED');
+            }
+            throw error;
+        }
+    }
+    
+    // If no Gemini keys, try OpenAI
+    if (hasOpenAIKeys) {
+        throw new Error('USE_OPENAI');
+    }
+    
+    // No keys available
+    throw new Error('No API keys available for text generation');
+}
 
 /**
  * Performs a request to the Gemini API, with robust handling for multiple API keys and retries.
@@ -380,12 +418,13 @@ export async function generateImageAndUrl(
     
     log(`🖼️ استخدام برومبت الصورة النهائي: "${finalPrompt.substring(0, 150)}..."`);
     
-    // 🎯 Smart decision: Use Pollinations directly if no Gemini keys available
+    // 🎯 Smart decision: Try different services based on available keys
     const hasGeminiKeys = apiKeyManager.getTotalGeminiKeys() > 0;
+    const hasOpenAIKeys = apiKeyManager.getTotalOpenAIKeys() > 0;
     
-    if (!hasGeminiKeys) {
-        // No Gemini keys - use Pollinations.ai directly (100% FREE!)
-        log('🎨 لا توجد مفاتيح Gemini، استخدام Pollinations.ai مباشرة (مجاني 100%)...');
+    if (!hasGeminiKeys && !hasOpenAIKeys) {
+        // No keys available - use Pollinations.ai directly (100% FREE!)
+        log('🎨 لا توجد مفاتيح API، استخدام Pollinations.ai مباشرة (مجاني 100%)...');
         
         try {
             const pollinationsBase64 = await generateImageWithPollinations(finalPrompt, log, options?.aspectRatio);
@@ -409,67 +448,117 @@ export async function generateImageAndUrl(
         }
     }
     
-    // Has Gemini keys - try Imagen first, fallback to Pollinations if it fails
-    try {
-        const response = await performGeminiRequest<GenerateImagesResponse>(client => client.models.generateImages({
-            model: imageModel,
-            prompt: finalPrompt,
-            config: {
-                numberOfImages: 1,
-                outputMimeType: 'image/jpeg',
-                aspectRatio: options?.aspectRatio || '16:9',
-            }
-        }), log);
-        
-        if (!response.generatedImages?.[0]?.image.imageBytes) {
-            throw new Error('فشل إنشاء الصورة، لم يتم إرجاع بيانات من الواجهة البرمجية. قد يكون السبب هو حظر المحتوى بسبب سياسات الأمان. جرّب تفعيل "الفلتر الفني الإبداعي" أو إعادة صياغة طلبك بأسلوب فني غير واقعي.');
-        }
-        log('🖼️ تم إنشاء الصورة، جاري تحويلها إلى WebP...');
-        const base64ImageBytes = response.generatedImages[0].image.imageBytes;
-        const imageDataUrl = `data:image/jpeg;base64,${base64ImageBytes}`;
-        
-        const webpDataUrl = await convertToWebp(imageDataUrl, options?.quality || 0.9);
-        log('🖼️ اكتمل التحويل إلى WebP.');
-
-        if (imgbbApiKey) {
-            log('☁️ رفع الصورة إلى خدمة الاستضافة...');
-            const webpBase64 = webpDataUrl.split(',')[1];
-            const hostedUrl = await uploadImageToHost(webpBase64, imgbbApiKey, slug);
-            log('✅ تم رفع الصورة بنجاح.');
-            return { imageUrl: hostedUrl, warning: null };
-        } else {
-            log('⚠️ لم يتم توفير مفتاح ImgBB. سيتم استخدام رابط بيانات مؤقت.');
-            return { imageUrl: webpDataUrl, warning: 'ImgBB API key is missing. The image is stored as a temporary data URL which may be very long and not suitable for production.' };
-        }
-    } catch (imagenError: any) {
-        // 🔄 Imagen failed, try Pollinations.ai as fallback (100% FREE!)
-        log('⚠️ فشل Imagen، جاري التبديل إلى Pollinations.ai المجاني...');
-        log(`📝 سبب الفشل: ${imagenError.message}`);
-        
+    // Try different services based on available keys
+    let lastError: any = null;
+    
+    // 1️⃣ Try Gemini Imagen first (if available)
+    if (hasGeminiKeys) {
         try {
-            // Generate image with Pollinations.ai (completely free, no API key needed!)
-            const pollinationsBase64 = await generateImageWithPollinations(finalPrompt, log);
-            const pollinationsDataUrl = `data:image/png;base64,${pollinationsBase64}`;
+            log('🎨 جاري تجربة Gemini Imagen...');
+            const response = await performGeminiRequest<GenerateImagesResponse>(client => client.models.generateImages({
+                model: imageModel,
+                prompt: finalPrompt,
+                config: {
+                    numberOfImages: 1,
+                    outputMimeType: 'image/jpeg',
+                    aspectRatio: options?.aspectRatio || '16:9',
+                }
+            }), log);
             
-            // Convert to WebP for consistency
-            const webpDataUrl = await convertToWebp(pollinationsDataUrl, options?.quality || 0.9);
+            if (!response.generatedImages?.[0]?.image.imageBytes) {
+                throw new Error('فشل إنشاء الصورة، لم يتم إرجاع بيانات من الواجهة البرمجية. قد يكون السبب هو حظر المحتوى بسبب سياسات الأمان. جرّب تفعيل "الفلتر الفني الإبداعي" أو إعادة صياغة طلبك بأسلوب فني غير واقعي.');
+            }
+            log('🖼️ تم إنشاء الصورة بـ Gemini Imagen، جاري تحويلها إلى WebP...');
+            const base64ImageBytes = response.generatedImages[0].image.imageBytes;
+            const imageDataUrl = `data:image/jpeg;base64,${base64ImageBytes}`;
+            
+            const webpDataUrl = await convertToWebp(imageDataUrl, options?.quality || 0.9);
             log('🖼️ اكتمل التحويل إلى WebP.');
 
             if (imgbbApiKey) {
                 log('☁️ رفع الصورة إلى خدمة الاستضافة...');
                 const webpBase64 = webpDataUrl.split(',')[1];
                 const hostedUrl = await uploadImageToHost(webpBase64, imgbbApiKey, slug);
-                log('✅ تم رفع الصورة بنجاح باستخدام Pollinations.ai!');
-                return { imageUrl: hostedUrl, warning: '✨ تم توليد الصورة باستخدام Pollinations.ai (مجاني 100%)' };
+                log('✅ تم رفع الصورة بنجاح بـ Gemini Imagen.');
+                return { imageUrl: hostedUrl, warning: null };
             } else {
                 log('⚠️ لم يتم توفير مفتاح ImgBB. سيتم استخدام رابط بيانات مؤقت.');
-                return { imageUrl: webpDataUrl, warning: '✨ تم توليد الصورة باستخدام Pollinations.ai (مجاني 100%). ImgBB API key is missing.' };
+                return { imageUrl: webpDataUrl, warning: 'ImgBB API key is missing. The image is stored as a temporary data URL which may be very long and not suitable for production.' };
             }
-        } catch (pollinationsError: any) {
-            // Both failed - return error
-            log(`❌ فشل كل من Imagen و Pollinations.ai: ${pollinationsError.message}`);
-            throw new Error(`فشل توليد الصورة من جميع المصادر. Imagen: ${imagenError.message}. Pollinations.ai: ${pollinationsError.message}`);
+        } catch (imagenError: any) {
+            lastError = imagenError;
+            log(`⚠️ فشل Gemini Imagen: ${imagenError.message}`);
         }
+    }
+    
+    // 2️⃣ Try OpenAI DALL-E 3 (if available)
+    if (hasOpenAIKeys) {
+        try {
+            log('🎨 جاري تجربة OpenAI DALL-E 3...');
+            const openaiKey = apiKeyManager.getActiveOpenAIApiKey();
+            if (openaiKey) {
+                const imageUrl = await generateImageWithOpenAI(
+                    { apiKey: openaiKey },
+                    {
+                        prompt: finalPrompt,
+                        aspectRatio: options?.aspectRatio || '1:1',
+                        quality: options?.quality === 'high' || options?.quality === 'hd' ? 'hd' : 'standard',
+                        style: 'vivid'
+                    }
+                );
+                
+                log('🖼️ تم إنشاء الصورة بـ OpenAI DALL-E 3، جاري تحويلها إلى WebP...');
+                
+                // Convert to WebP for consistency
+                const webpDataUrl = await convertToWebp(imageUrl, options?.quality || 0.9);
+                log('🖼️ اكتمل التحويل إلى WebP.');
+
+                if (imgbbApiKey) {
+                    log('☁️ رفع الصورة إلى خدمة الاستضافة...');
+                    const webpBase64 = webpDataUrl.split(',')[1];
+                    const hostedUrl = await uploadImageToHost(webpBase64, imgbbApiKey, slug);
+                    log('✅ تم رفع الصورة بنجاح بـ OpenAI DALL-E 3.');
+                    return { imageUrl: hostedUrl, warning: '✨ تم توليد الصورة باستخدام OpenAI DALL-E 3' };
+                } else {
+                    log('⚠️ لم يتم توفير مفتاح ImgBB. سيتم استخدام رابط بيانات مؤقت.');
+                    return { imageUrl: webpDataUrl, warning: '✨ تم توليد الصورة باستخدام OpenAI DALL-E 3. ImgBB API key is missing.' };
+                }
+            }
+        } catch (openaiError: any) {
+            lastError = openaiError;
+            log(`⚠️ فشل OpenAI DALL-E 3: ${openaiError.message}`);
+        }
+    }
+    
+    // 3️⃣ Fallback to Pollinations.ai (100% FREE!)
+    log('🎨 جاري التبديل إلى Pollinations.ai المجاني...');
+    
+    try {
+        // Generate image with Pollinations.ai (completely free, no API key needed!)
+        const pollinationsBase64 = await generateImageWithPollinations(finalPrompt, log, options?.aspectRatio);
+        const pollinationsDataUrl = `data:image/png;base64,${pollinationsBase64}`;
+        
+        // Convert to WebP for consistency
+        const webpDataUrl = await convertToWebp(pollinationsDataUrl, options?.quality || 0.9);
+        log('🖼️ اكتمل التحويل إلى WebP.');
+
+        if (imgbbApiKey) {
+            log('☁️ رفع الصورة إلى خدمة الاستضافة...');
+            const webpBase64 = webpDataUrl.split(',')[1];
+            const hostedUrl = await uploadImageToHost(webpBase64, imgbbApiKey, slug);
+            log('✅ تم رفع الصورة بنجاح باستخدام Pollinations.ai!');
+            return { imageUrl: hostedUrl, warning: '✨ تم توليد الصورة باستخدام Pollinations.ai (مجاني 100%)' };
+        } else {
+            log('⚠️ لم يتم توفير مفتاح ImgBB. سيتم استخدام رابط بيانات مؤقت.');
+            return { imageUrl: webpDataUrl, warning: '✨ تم توليد الصورة باستخدام Pollinations.ai (مجاني 100%). ImgBB API key is missing.' };
+        }
+    } catch (pollinationsError: any) {
+        // All services failed - return error
+        log(`❌ فشل جميع خدمات توليد الصور`);
+        const errorMessages = [];
+        if (lastError) errorMessages.push(`Previous error: ${lastError.message}`);
+        errorMessages.push(`Pollinations.ai: ${pollinationsError.message}`);
+        throw new Error(`فشل توليد الصورة من جميع المصادر. ${errorMessages.join('. ')}`);
     }
 }
 
@@ -627,7 +716,32 @@ export async function generateArticleContent(
         log("🌐 تم تفعيل البحث عبر الإنترنت.");
     }
 
-    const articleResponse = await performGeminiRequest<GenerateContentResponse>(client => client.models.generateContent({ model: preferences.selectedTextModel, contents: sourceTextForArticle, config: config }), log);
+    let articleResponse: any;
+    try {
+        articleResponse = await performTextRequest<GenerateContentResponse>(client => client.models.generateContent({ model: preferences.selectedTextModel, contents: sourceTextForArticle, config: config }), log);
+    } catch (error: any) {
+        if (error.message === 'USE_OPENAI') {
+            log('🔄 استخدام OpenAI للنص...');
+            const openaiKey = apiKeyManager.getActiveOpenAIApiKey();
+            if (openaiKey) {
+                const openaiResponse = await generateTextWithOpenAI(
+                    { apiKey: openaiKey },
+                    {
+                        prompt: sourceTextForArticle,
+                        model: 'gpt-4',
+                        maxTokens: 4000,
+                        temperature: 0.7
+                    }
+                );
+                articleResponse = { text: openaiResponse };
+            } else {
+                throw new Error('No OpenAI API key available');
+            }
+        } else {
+            throw error;
+        }
+    }
+    
     const jsonString = extractJsonString(articleResponse.text);
     if (!jsonString) {
         throw new Error(`JSON parsing failed. The model response was empty or malformed. Raw response: ${articleResponse.text}`);
@@ -658,7 +772,34 @@ export async function generateArticleContent(
             log("🧠 تحليل المحتوى لإنشاء برومبت الصورة...");
             const imagePromptProtocol = `You are a creative director. Based on the article title and description, generate a single, detailed, visually rich prompt in ENGLISH. The prompt MUST include the phrases "8K resolution", "ultra high quality", and "vibrant colors". Any text that might appear on the image must be in English. The response must be a valid JSON object: {"imagePrompt": "your prompt here"}. Article: Title: ${textualContent.title}, Description: ${textualContent.metaDescription}`;
             const imagePromptSchema = { type: Type.OBJECT, properties: { imagePrompt: { type: Type.STRING } } };
-            const imagePromptResponse = await performGeminiRequest<GenerateContentResponse>(client => client.models.generateContent({ model: preferences.selectedTextModel, contents: imagePromptProtocol, config: { responseMimeType: "application/json", responseSchema: imagePromptSchema } }), log);
+            let imagePromptResponse: any;
+            try {
+                imagePromptResponse = await performTextRequest<GenerateContentResponse>(client => client.models.generateContent({ model: preferences.selectedTextModel, contents: imagePromptProtocol, config: { responseMimeType: "application/json", responseSchema: imagePromptSchema } }), log);
+            } catch (error: any) {
+                if (error.message === 'USE_OPENAI') {
+                    log('🔄 استخدام OpenAI لبرومبت الصورة...');
+                    const openaiKey = apiKeyManager.getActiveOpenAIApiKey();
+                    if (openaiKey) {
+                        const openaiResponse = await generateTextWithOpenAI(
+                            { apiKey: openaiKey },
+                            {
+                                prompt: imagePromptProtocol,
+                                model: 'gpt-4',
+                                maxTokens: 1000,
+                                temperature: 0.7
+                            }
+                        );
+                        imagePromptResponse = { text: openaiResponse };
+                    } else {
+                        imagePromptToUse = textualContent.title;
+                        return;
+                    }
+                } else {
+                    imagePromptToUse = textualContent.title;
+                    return;
+                }
+            }
+            
             const promptJson = extractJsonString(imagePromptResponse.text);
             imagePromptToUse = promptJson ? JSON.parse(promptJson).imagePrompt : textualContent.title;
         }

@@ -3,6 +3,8 @@ import { AppSettings, ContentType, ApiKey } from './types';
 // Dedicated storage keys for each service to prevent conflicts
 const GEMINI_KEYS_STORAGE_KEY = 'geminiApiKeys_v2';
 const ACTIVE_KEY_INDEX_STORAGE_KEY = 'activeGeminiApiKeyIndex_v2';
+const OPENAI_KEYS_STORAGE_KEY = 'openaiApiKeys_v2';
+const ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY = 'activeOpenAIApiKeyIndex_v2';
 const IMGBB_API_KEY = 'imgbbApiKey_v2'; // Updated key
 const YOUTUBE_API_KEY = 'youtubeApiKey_v2'; // Updated key
 const LEGACY_IMGBB_API_KEY = 'imgbbApiKey';
@@ -63,9 +65,32 @@ export const apiKeyManager = {
         }
     }
 
+    const storedOpenAIKeys = localStorage.getItem(OPENAI_KEYS_STORAGE_KEY);
+    let openaiApiKeys: ApiKey[] = [];
+    if (storedOpenAIKeys) {
+        try {
+            const parsed = JSON.parse(storedOpenAIKeys);
+            if (Array.isArray(parsed)) {
+                openaiApiKeys = parsed.map(item => {
+                    if (typeof item === 'string') {
+                        return { key: item, status: 'unknown' };
+                    }
+                    if(item && typeof item.key === 'string') {
+                        return { key: item.key, status: item.status || 'unknown' };
+                    }
+                    return null;
+                }).filter((item): item is ApiKey => item !== null);
+            }
+        } catch (e) {
+            console.error("Failed to parse OpenAI keys from localStorage", e);
+        }
+    }
+
     return {
       geminiApiKeys,
       activeGeminiKeyIndex: safeJsonParse<number>(ACTIVE_KEY_INDEX_STORAGE_KEY, 0),
+      openaiApiKeys,
+      activeOpenAIKeyIndex: safeJsonParse<number>(ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY, 0),
       imgbbApiKey: loadSingleApiKey(IMGBB_API_KEY, LEGACY_IMGBB_API_KEY),
       youtubeApiKey: loadSingleApiKey(YOUTUBE_API_KEY, LEGACY_YOUTUBE_API_KEY),
     };
@@ -78,6 +103,13 @@ export const apiKeyManager = {
         .filter(k => k.key);
       localStorage.setItem(GEMINI_KEYS_STORAGE_KEY, JSON.stringify(sanitizedKeys));
       localStorage.setItem(ACTIVE_KEY_INDEX_STORAGE_KEY, '0');
+    }
+    if (settings.openaiApiKeys !== undefined) {
+      const sanitizedKeys = settings.openaiApiKeys
+        .map(k => ({ key: k.key.trim(), status: k.status || 'unknown' }))
+        .filter(k => k.key);
+      localStorage.setItem(OPENAI_KEYS_STORAGE_KEY, JSON.stringify(sanitizedKeys));
+      localStorage.setItem(ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY, '0');
     }
     if (settings.imgbbApiKey !== undefined) {
       const keyToSave = { key: settings.imgbbApiKey.key.trim(), status: settings.imgbbApiKey.status || 'unknown' };
@@ -122,6 +154,42 @@ export const apiKeyManager = {
 
   getActiveGeminiKeyIndex: (): number => {
     return safeJsonParse<number>(ACTIVE_KEY_INDEX_STORAGE_KEY, 0);
+  },
+
+  // OpenAI API Key Management
+  getActiveOpenAIApiKey: (): string | null => {
+    const keys = apiKeyManager.loadSettings().openaiApiKeys;
+    if (keys.length === 0) return null;
+    
+    const index = safeJsonParse<number>(ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY, 0);
+    
+    if (index >= keys.length) {
+      localStorage.setItem(ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY, '0');
+      return keys[0]?.key || null;
+    }
+    return keys[index]?.key || null;
+  },
+
+  rotateToNextOpenAIKey: (): string | null => {
+    const keys = apiKeyManager.loadSettings().openaiApiKeys;
+    if (keys.length === 0) return null;
+    
+    const currentIndex = safeJsonParse<number>(ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY, 0);
+    const nextIndex = (currentIndex + 1) % keys.length;
+    localStorage.setItem(ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY, String(nextIndex));
+    return keys[nextIndex]?.key || null;
+  },
+  
+  hasOpenAIKeys: (): boolean => {
+    return apiKeyManager.loadSettings().openaiApiKeys.length > 0;
+  },
+
+  getTotalOpenAIKeys: (): number => {
+    return apiKeyManager.loadSettings().openaiApiKeys.length;
+  },
+
+  getActiveOpenAIKeyIndex: (): number => {
+    return safeJsonParse<number>(ACTIVE_OPENAI_KEY_INDEX_STORAGE_KEY, 0);
   },
 
   // New: Functions to export and import all app settings

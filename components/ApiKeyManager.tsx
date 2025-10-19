@@ -8,12 +8,16 @@ import { fileToText } from '../utils/file';
 interface ApiKeyManagerProps {
     geminiApiKeys: ApiKey[];
     setGeminiApiKeys: (keys: ApiKey[]) => void;
+    openaiApiKeys: ApiKey[];
+    setOpenaiApiKeys: (keys: ApiKey[]) => void;
     imgbbApiKey: ApiKey;
     setImgbbApiKey: (key: ApiKey) => void;
     youtubeApiKey: ApiKey;
     setYoutubeApiKey: (key: ApiKey) => void;
     activeKeyIndex: number;
     setActiveKeyIndex: (index: number) => void;
+    activeOpenAIKeyIndex: number;
+    setActiveOpenAIKeyIndex: (index: number) => void;
 }
 
 const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
@@ -22,6 +26,7 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
     const [isEditing, setIsEditing] = useState(props.geminiApiKeys.length === 0 && !props.imgbbApiKey.key && !props.youtubeApiKey.key);
     
     const [localGeminiKeys, setLocalGeminiKeys] = useState<string[]>([]);
+    const [localOpenAIKeys, setLocalOpenAIKeys] = useState<string[]>([]);
     const [localImgbbKey, setLocalImgbbKey] = useState(props.imgbbApiKey.key);
     const [localYoutubeKey, setLocalYoutubeKey] = useState(props.youtubeApiKey.key);
     const [isChecking, setIsChecking] = useState(false);
@@ -31,7 +36,7 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
     const purpleButtonClasses = "w-full px-4 py-2 text-sm rounded-md bg-purple-600/30 dark:bg-purple-500/20 backdrop-blur-sm border border-purple-500/50 dark:border-purple-400/40 text-white hover:bg-purple-600/50 dark:hover:bg-purple-500/40 transition-colors duration-300";
 
     const getOverallStatus = (): 'success' | 'warning' | 'error' | 'unknown' => {
-        const allKeys = [...props.geminiApiKeys, props.imgbbApiKey, props.youtubeApiKey].filter(k => k.key);
+        const allKeys = [...props.geminiApiKeys, ...props.openaiApiKeys, props.imgbbApiKey, props.youtubeApiKey].filter(k => k.key);
         if (allKeys.length === 0) return 'unknown';
 
         if (allKeys.some(k => k.status === 'invalid')) return 'error';
@@ -45,6 +50,7 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
         const lines = text.split('\n');
         
         const newGeminiKeys: ApiKey[] = [];
+        const newOpenAIKeys: ApiKey[] = [];
         let newImgbbKey: ApiKey | null = null;
         let newYoutubeKey: ApiKey | null = null;
 
@@ -60,6 +66,9 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
                 case 'GEMINI':
                     newGeminiKeys.push({ key: keyValue, status: 'unknown' });
                     break;
+                case 'OPENAI':
+                    newOpenAIKeys.push({ key: keyValue, status: 'unknown' });
+                    break;
                 case 'IMGBB':
                     newImgbbKey = { key: keyValue, status: 'unknown' };
                     break;
@@ -72,19 +81,23 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
         });
         
         const finalGeminiKeys = newGeminiKeys.length > 0 ? newGeminiKeys : props.geminiApiKeys;
+        const finalOpenAIKeys = newOpenAIKeys.length > 0 ? newOpenAIKeys : props.openaiApiKeys;
         const finalImgbbKey = newImgbbKey || props.imgbbApiKey;
         const finalYoutubeKey = newYoutubeKey || props.youtubeApiKey;
 
         apiKeyManager.saveSettings({
             geminiApiKeys: finalGeminiKeys,
+            openaiApiKeys: finalOpenAIKeys,
             imgbbApiKey: finalImgbbKey,
             youtubeApiKey: finalYoutubeKey,
         });
         
         props.setGeminiApiKeys(finalGeminiKeys);
+        props.setOpenaiApiKeys(finalOpenAIKeys);
         props.setImgbbApiKey(finalImgbbKey);
         props.setYoutubeApiKey(finalYoutubeKey);
         props.setActiveKeyIndex(0);
+        props.setActiveOpenAIKeyIndex(0);
 
         alert('تم استيراد المفاتيح بنجاح!');
         setIsEditing(false);
@@ -131,43 +144,69 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
             return existing ? existing : { key: trimmedKey, status: 'unknown' };
         }).filter(k => k.key);
         
+        const openaiKeysToSave: ApiKey[] = localOpenAIKeys.map(keyStr => {
+            const trimmedKey = keyStr.trim();
+            const existing = props.openaiApiKeys.find(k => k.key === trimmedKey);
+            return existing ? existing : { key: trimmedKey, status: 'unknown' };
+        }).filter(k => k.key);
+        
         const newImgbbApiKey: ApiKey = { key: localImgbbKey.trim(), status: props.imgbbApiKey.key === localImgbbKey.trim() ? props.imgbbApiKey.status : 'unknown' };
         const newYoutubeApiKey: ApiKey = { key: localYoutubeKey.trim(), status: props.youtubeApiKey.key === localYoutubeKey.trim() ? props.youtubeApiKey.status : 'unknown' };
 
-        apiKeyManager.saveSettings({ geminiApiKeys: keysToSave, imgbbApiKey: newImgbbApiKey, youtubeApiKey: newYoutubeApiKey });
+        apiKeyManager.saveSettings({ 
+            geminiApiKeys: keysToSave, 
+            openaiApiKeys: openaiKeysToSave,
+            imgbbApiKey: newImgbbApiKey, 
+            youtubeApiKey: newYoutubeApiKey 
+        });
 
         props.setGeminiApiKeys(keysToSave);
+        props.setOpenaiApiKeys(openaiKeysToSave);
         props.setImgbbApiKey(newImgbbApiKey);
         props.setYoutubeApiKey(newYoutubeApiKey);
         props.setActiveKeyIndex(0);
+        props.setActiveOpenAIKeyIndex(0);
         setIsEditing(false);
     };
 
     const handleEdit = () => {
         setLocalGeminiKeys(props.geminiApiKeys.map(k => k.key));
+        setLocalOpenAIKeys(props.openaiApiKeys.map(k => k.key));
         setLocalImgbbKey(props.imgbbApiKey.key);
         setLocalYoutubeKey(props.youtubeApiKey.key);
         setIsEditing(true);
         setIsCollapsed(false);
     };
     
-    const handleCancel = () => { if (props.geminiApiKeys.length > 0 || props.imgbbApiKey.key || props.youtubeApiKey.key) setIsEditing(false); };
+    const handleCancel = () => { if (props.geminiApiKeys.length > 0 || props.openaiApiKeys.length > 0 || props.imgbbApiKey.key || props.youtubeApiKey.key) setIsEditing(false); };
     const handleKeyChange = (index: number, value: string) => { setLocalGeminiKeys(prev => { const newKeys = [...prev]; newKeys[index] = value; return newKeys; }); };
     const handleRemoveKey = (index: number) => setLocalGeminiKeys(prev => prev.filter((_, i) => i !== index));
     const handleAddKey = () => setLocalGeminiKeys(prev => [...prev, '']);
+    
+    const handleAddOpenAIKey = () => setLocalOpenAIKeys(prev => [...prev, '']);
+    const handleRemoveOpenAIKey = (index: number) => setLocalOpenAIKeys(prev => prev.filter((_, i) => i !== index));
+    const handleOpenAIKeyChange = (index: number, value: string) => { setLocalOpenAIKeys(prev => { const newKeys = [...prev]; newKeys[index] = value; return newKeys; }); };
 
     const handleValidateKeys = async () => {
         setIsChecking(true);
         const geminiPromises = props.geminiApiKeys.map(async (apiKey) => ({ ...apiKey, status: await validateApiKey(apiKey.key) }));
-        const [updatedGeminiKeys, updatedImgbbKey, updatedYoutubeKey] = await Promise.all([
+        const openaiPromises = props.openaiApiKeys.map(async (apiKey) => ({ ...apiKey, status: await validateApiKey(apiKey.key) }));
+        const [updatedGeminiKeys, updatedOpenAIKeys, updatedImgbbKey, updatedYoutubeKey] = await Promise.all([
             Promise.all(geminiPromises),
+            Promise.all(openaiPromises),
             validateImgbbApiKey(props.imgbbApiKey.key).then(status => ({ ...props.imgbbApiKey, status })),
             validateYoutubeApiKey(props.youtubeApiKey.key).then(status => ({ ...props.youtubeApiKey, status })),
         ]);
         props.setGeminiApiKeys(updatedGeminiKeys);
+        props.setOpenaiApiKeys(updatedOpenAIKeys);
         props.setImgbbApiKey(updatedImgbbKey);
         props.setYoutubeApiKey(updatedYoutubeKey);
-        apiKeyManager.saveSettings({ geminiApiKeys: updatedGeminiKeys, imgbbApiKey: updatedImgbbKey, youtubeApiKey: updatedYoutubeKey });
+        apiKeyManager.saveSettings({ 
+            geminiApiKeys: updatedGeminiKeys, 
+            openaiApiKeys: updatedOpenAIKeys,
+            imgbbApiKey: updatedImgbbKey, 
+            youtubeApiKey: updatedYoutubeKey 
+        });
         setIsChecking(false);
     };
     
@@ -198,6 +237,20 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
                     </div>
                     <button onClick={handleAddKey} className={purpleButtonClasses}>+ إضافة مفتاح Gemini جديد</button>
                 </div>
+                <div className="p-3 border border-gray-300 dark:border-gray-700 rounded-lg space-y-3 bg-gray-50 dark:bg-gray-900/40">
+                    <h4 className="text-sm font-bold text-center text-gray-600 dark:text-gray-300">خدمة OpenAI (للصور والنصوص)</h4>
+                     <div className="space-y-2">
+                        {localOpenAIKeys.map((key, index) => (
+                            <div key={index} className="flex items-center gap-2">
+                                <input type="text" value={key} onChange={(e) => handleOpenAIKeyChange(index, e.target.value)} placeholder={`مفتاح OpenAI #${index + 1}`} className="flex-grow w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md p-2 font-mono text-sm" />
+                                <button onClick={() => handleRemoveOpenAIKey(index)} className="p-2 rounded-md bg-red-600 hover:bg-red-700 text-white" aria-label={`Remove OpenAI key ${index + 1}`}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                    <button onClick={handleAddOpenAIKey} className={purpleButtonClasses}>+ إضافة مفتاح OpenAI جديد</button>
+                </div>
                  <div className="p-3 border border-gray-300 dark:border-gray-700 rounded-lg space-y-3 bg-gray-50 dark:bg-gray-900/40">
                     <h4 className="text-sm font-bold text-center text-gray-600 dark:text-gray-300">خدمات إضافية</h4>
                     <div>
@@ -221,6 +274,13 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
                         const { icon, color } = getStatusIndicator(apiKey.status);
                         return <div key={index} className={`p-2 rounded-md bg-gray-900/50 text-sm font-mono flex justify-between items-center border ${index === props.activeKeyIndex ? 'border-cyan-500' : 'border-transparent'}`}>
                             <div className="flex items-center gap-2"><i className={`${icon} ${color} text-lg`}></i><span className="font-semibold text-gray-300">Gemini #{index + 1}</span></div>
+                            <span className="text-gray-400">{maskKey(apiKey.key)}</span>
+                        </div>;
+                    })}
+                    {props.openaiApiKeys.map((apiKey, index) => {
+                        const { icon, color } = getStatusIndicator(apiKey.status);
+                        return <div key={index} className={`p-2 rounded-md bg-gray-900/50 text-sm font-mono flex justify-between items-center border ${index === props.activeOpenAIKeyIndex ? 'border-cyan-500' : 'border-transparent'}`}>
+                            <div className="flex items-center gap-2"><i className={`${icon} ${color} text-lg`}></i><span className="font-semibold text-gray-300">OpenAI #{index + 1}</span></div>
                             <span className="text-gray-400">{maskKey(apiKey.key)}</span>
                         </div>;
                     })}
@@ -248,7 +308,7 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
                         <div className="flex flex-col items-center justify-center gap-2 text-gray-400">
                             <i className="fas fa-file-import text-2xl"></i>
                             <p className="text-sm font-semibold">اسحب وأفلت ملف المفاتيح (.txt) هنا أو انقر للاختيار</p>
-                            <p className="text-xs">التنسيق: GEMINI=... أو IMGBB=...</p>
+                            <p className="text-xs">التنسيق: GEMINI=... أو OPENAI=... أو IMGBB=...</p>
                         </div>
                     </div>
                     <input type="file" ref={fileInputRef} onChange={handleFileInputChange} className="hidden" accept=".txt" />
@@ -275,7 +335,7 @@ const ApiKeyManager: React.FC<ApiKeyManagerProps> = (props) => {
                      <i className={`fas fa-key text-3xl glowing-key ${statusClasses[status]}`}></i>
                      <div>
                         <h3 className="font-bold text-lg text-white">إدارة مفاتيح التشغيل (API Keys)</h3>
-                        <p className="text-sm text-gray-400">انقر هنا لفتح وإدارة مفاتيح Gemini, ImgBB, وغيرها</p>
+                        <p className="text-sm text-gray-400">انقر هنا لفتح وإدارة مفاتيح Gemini, OpenAI, ImgBB, وغيرها</p>
                      </div>
                 </div>
                  <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 text-gray-300 transform transition-transform duration-300 ${!isCollapsed ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
